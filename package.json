@@ -1,0 +1,36 @@
+{
+  "name": "thewoodlandslatindance",
+  "version": "1.0.0",
+  "description": "Dance Website\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[DThe Woodlands Latin Dance is a dance education institution in the woodlands that teaches peoiple how to dance salsa and bachata\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[D\u001b[",
+  "main": "index.js",
+  "scripts": {
+    "test": "jest --coverage --runInBand --detectOpenHandles --forceExit",
+    "dev-test": "jest --watchAll --coverage --detectOpenHandles",
+    "start": "node index.js",
+    "dev": "nodemon index.js",
+    "seed": "node ./utils/seeder.js"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Balvarezpandozi/thewoodlandslatindance.git"
+  },
+  "author": "Bryan D Alvarez Pandozi",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Balvarezpandozi/thewoodlandslatindance/issues"
+  },
+  "homepage": "https://github.com/Balvarezpandozi/thewoodlandslatindance#readme",
+  "devDependencies": {
+    "jest": "^29.7.0",
+    "supertest": "^7.0.0"
+  },
+  "dependencies": {
+    "dotenv": "^16.4.5",
+    "ejs": "^3.1.10",
+    "ejs-mate": "^4.0.0",
+    "express": "^4.21.1",
+    "method-override": "^3.0.0",
+    "mongoose": "^8.8.1",
+    "nodemon": "^3.1.7"
+  }
+}

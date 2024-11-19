@@ -1,0 +1,44 @@
+name: The Woodlands Latin Dance Tests
+
+# Controls when the workflow will run
+on:
+  # Triggers the workflow on push or pull request events but only for the "main" branch
+  push:
+    branches: 
+      - "main"
+  pull_request:
+    branches: 
+      - "main"
+
+# A workflow run is made up of one or more jobs that can run sequentially or in parallel
+jobs:
+  test:
+    runs-on: ubuntu-latest
+    strategy:
+      matrix:
+        node-version: [18.16.0]
+        mongodb-version: [6.0]
+    
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Set up Node Js
+        uses: actions/setup-node@v3
+        with:
+          node-version: ${{ matrix.node-version }}
+
+      - name: Start MongoDB
+        uses: supercharge/mongodb-github-action@1.10.0
+        with:
+          mongodb-version: ${{ matrix.mongodb-version }}
+          mongodb-replica-set: test-rs
+          mongodb-port: 27017
+      
+      - name: Install dependancies
+        run: |
+          npm install
+          
+      - name: Test App Code
+        env:
+          DATABASE_URL: ${{ secrets.DATABASE_URL }}
+        run: npm test
