@@ -1,0 +1,5 @@
+---
+deployment:
+  tasks:
+    - export DEPLOYPATH=/home/thewplyc/app
+    - /bin/cp -a * $DEPLOYPATH
