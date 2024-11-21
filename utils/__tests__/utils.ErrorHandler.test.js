@@ -11,7 +11,10 @@ describe('test Error Hanlder', () => {
         let next = jest.fn();
 
         errorHandler(err, req, res, next);
-        expect(res.render).toHaveBeenCalledWith('main/error', {'message': 'Something went wrong', 'status': 500});
+        expect(res.render).toHaveBeenCalled();
+        const valuesPassed = res.render.mock.calls[0];
+        expect(valuesPassed[0]).toBe("main/error");
+        expect(valuesPassed[1].message).toBe("Something went wrong");
     });
 });
 

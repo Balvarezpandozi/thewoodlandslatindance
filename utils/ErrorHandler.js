@@ -22,7 +22,7 @@ function errorHandler(err, req, res, next) {
     const { status = 500, message = 'Something went wrong' } = err;
     res.status(status);
     const viewLocals = new ViewLocals();
-    res.render('main/error', {locals: viewLocals, message, status});
+    res.render('main/error', {message, status, locals: viewLocals});
     next();
 }
 
