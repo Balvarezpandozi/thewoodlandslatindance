@@ -4,10 +4,12 @@ const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
 const { ExpressError, errorHandler } = require('./utils/ErrorHandler');
+const ViewLocals = require('./utils/ViewLocals');
 
 const Database = require('./services/database');
 
 const homepageRouter = require('./routes/homepage');
+const newsletterRouter = require('./routes/newsletter');
 
 const db = new Database();
 db.connect();
@@ -24,6 +26,7 @@ app.use(express.json());
 app.use(methodOverride('_method'));
 
 app.use('/', homepageRouter);
+app.use('/newsletter', newsletterRouter);
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not found', 404));

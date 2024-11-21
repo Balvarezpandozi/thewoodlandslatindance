@@ -4,6 +4,6 @@ const homepageController = require('../controllers/homepage');
 const { catchAsync } = require('../utils/ErrorHandler');
 
 router.route('/')
-    .get(catchAsync(homepageController.renderHomepage));
+    .get(homepageController.renderHomepage);
 
 module.exports = router;

@@ -1,0 +1,52 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">Join our newsletter!</h1>
+    <form action="/newsletter/new" method="POST" class="needs-validation" novalidate>
+        <div class="form-group mb-3">
+            <label for="firstName">Name</label>
+            <input type="text" class="form-control" id="firstName" name="user[firstName]" placeholder="John" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Enter your name...
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="firstName">Last name</label>
+            <input type="text" class="form-control" id="lastName" name="user[lastName]" placeholder="Doe" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Enter your last name...
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="inputEmail">Email address</label>
+            <input type="email" class="form-control" id="inputEmail" aria-describedby="emailHelp" name="user[email]" placeholder="example@exmaple.com" required>
+            <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Enter valid email.
+            </div>
+        </div>
+        <div class="form-group mb-3">
+            <label for="phoneNumber">Phone Number</label>
+            <input type="tel" class="form-control" id="phoneNumber" name="user[phoneNumber]" placeholder="(555) 555-5555" required>
+            <div class="valid-feedback">
+              Looks good!
+            </div>
+            <div class="invalid-feedback">
+              Enter a valid phone number. Just the digits. Ex: 5555555555
+            </div>
+        </div>
+        <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/newsletterForm.js"></script>
