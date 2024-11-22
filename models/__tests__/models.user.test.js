@@ -1,4 +1,4 @@
-const User = require('../user');
+const User = require('../users');
 
 describe('Test User Model', () => {
     it('should be invalid if phone number is too short', () => {

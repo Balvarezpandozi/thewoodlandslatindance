@@ -36,7 +36,7 @@
           <p><strong>January: </strong> 9th, 16th, 23rd, 30th</p>
           <p>⏰ TIME: <strong>8 PM</strong></p>
           <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">RSVP for next session</a>
+          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">Join our Newsletter!</a>
         </div>
       </div>
       <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
@@ -51,7 +51,7 @@
           <p><strong>February: </strong> TBD</p>
           <p>⏰ TIME: <strong>TBD</strong></p>
           <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">RSVP for next session</a>
+          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">Click here to stay updated!</a>
         </div>
       </div>
     </div>
@@ -71,7 +71,7 @@
         </p>
         <p></p>
         <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a href="https://buy.stripe.com/4gwaI4axOh09f9C6op" class="btn btn-success">Get Walk-In pass</a>
+        <a target="_blank" href="https://buy.stripe.com/4gwaI4axOh09f9C6op" class="btn btn-success">Get Walk-In pass</a>
       </div>
     </div>
 
@@ -82,7 +82,7 @@
           This includes all sessions (4 classes) in a month for the class you choose. Check out our classes above👆🏻.
         </p>
         <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a href="https://buy.stripe.com/8wM6rO6hybFP3qU4gg" class="btn btn-success">Get Monthly Cycle</a>
+        <a target="_blank" href="https://buy.stripe.com/8wM6rO6hybFP3qU4gg" class="btn btn-success">Get Monthly Cycle</a>
       </div>
     </div>
 
@@ -93,19 +93,38 @@
           For the more dedicated dancers. This package allows you to take any of the classes we offer throughout the month. Check out our classes above👆🏻.
         </p>
         <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a href="https://buy.stripe.com/cN29E0fS8dNXd1u146" class="btn btn-success">Get Monthly Unlimited</a>
+        <a target="_blank" href="https://buy.stripe.com/cN29E0fS8dNXd1u146" class="btn btn-success">Get Monthly Unlimited</a>
       </div>
     </div>
 
-    <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
+    <div class="card my-2 align-self-stretch flex-grow-1 mx-auto" style="width: 18rem;">
       <div class="card-body">
         <h5 class="card-title">Private Lessons - $80</h5>
         <p class="card-text">
           Do you want to get some personalized help? target exactly what you and only are struggling with? do you want one to one feedback? Give us a call or a message
           and we'll set up a 1 hour private lesson with you.
         </p>
-        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle or online)</p>
-        <a href="<%=locals.contactLink%>" class="btn btn-success">Contact The Woodlands Latin Dance</a>
+        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash, zelle or online)</p>
+        <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn btn-success">Contact The Woodlands Latin Dance</button>
+        <div id="contactModal" class="modal" tabindex="-1">
+          <div class="modal-dialog" >
+            <div class="modal-content text-white" style="background-color: #2b3035"">
+              <div class="modal-header">
+                <h5 class="modal-title">Contact The Woodlands Latin Dance</h5>
+                <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+              </div>
+              <div class="modal-body">
+                <p>For private lessons please communicate directly with The Woodlands Latin Dance so that we can accomodate a 1 hour session with the instructor.</p>
+                <p>You can call to this number: <i class="fas fa-phone mr-3"></i> <a class="link" href="tel:+18327913321">+1 (832) 791-3321</a></p>
+                <p>You can send a direct message to either <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.instagram.com/thewoodlandslatindance/"><i class="fab fa-instagram"></i></a> or <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.facebook.com/profile.php?id=61568719342267"><i class="fab fa-facebook-f"></i></a></p>
+                <p>Or you can send an email to <i class="fas fa-envelope mr-3"></i><a class="link" href="mailto:TheWoodlandsLatinDance@gmail.com" target="_blank">TheWoodlandsLatinDance@gmail.com</a></p>
+              </div>
+              <div class="modal-footer">
+                <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
     </div>
 
@@ -144,3 +163,12 @@
       </div>
   </div>
 </div>
+
+<script>
+  const myModal = document.getElementById('contactModal')
+  const myInput = document.getElementById('contactButton')
+
+  myModal.addEventListener('shown.bs.modal', () => {
+    myInput.focus()
+  })
+</script>
