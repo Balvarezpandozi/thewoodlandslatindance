@@ -3,8 +3,8 @@ const express = require('express');
 const path = require('path');
 const methodOverride = require('method-override');
 const ejsMate = require('ejs-mate');
+const flash = require('connect-flash');
 const { ExpressError, errorHandler } = require('./utils/ErrorHandler');
-const ViewLocals = require('./utils/ViewLocals');
 
 const Database = require('./services/database');
 

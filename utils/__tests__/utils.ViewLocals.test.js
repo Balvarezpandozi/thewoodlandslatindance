@@ -7,7 +7,7 @@ describe('Test ViewLocals helper', () => {
         expect(viewLocals.pricingLink).toBe('/#pricing-section');
         expect(viewLocals.faqsLink).toBe('/#faqs-section');
         expect(viewLocals.contactLink).toBe('#contact-section');
-        expect(viewLocals.joinNewsletterLink).toBe('/newsletter');
+        expect(viewLocals.joinNewsletterLink).toBe('https://member.life/thewoodlandslatindance/register');
         expect(viewLocals.pageTitle).toBe('The Woodlands Latin Dance');
     });
 });

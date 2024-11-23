@@ -4,6 +4,9 @@
     <meta charset="UTF-8">
     <meta http-equiv="X-UA-Compatible" content="IE=edge">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="The Woodlands Latin Dance offers salsa and bachata classes in The Woodlands, TX and Spring, TX. Learn in a welcoming environment with expert instructors. No partner needed!">
+    <meta name="keywords" content="salsa classes, bachata classes, dance lessons, The Woodlands, Latin dance, Spring TX, beginner">
+    <meta name="author" content="The Woodlands Latin Dance">
     <link rel="shortcut icon" type="image/x-icon" href="/res/images/logo.png" />
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" >
     <link href="/stylesheets/fontawesome/css/fontawesome.css" rel="stylesheet" />
@@ -12,7 +15,73 @@
     <% locals.styleFiles?.forEach((file) => { %>
         <link href="/stylesheets/<%=file%>" rel="stylesheet"> 
     <% }) %>
-    <title><%= locals.pageTitle %></title>
+    <title>The Woodlands Latin Dance - Salsa & Bachata Classes</title>
+    
+    <!-- Structured Data Markup -->
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "LocalBusiness",
+          "name": "The Woodlands Latin Dance",
+          "url": "https://www.thewoodlandslatindance.com",
+          "logo": "https://www.thewoodlandslatindance.com/res/images/logo.png",
+          "description": "The Woodlands Latin Dance offers salsa and bachata classes for all levels. Join us for group classes, private lessons, and monthly packages in Spring, TX and The Woodlands, TX.",
+          "address": {
+            "@type": "PostalAddress",
+            "streetAddress": "25323 I-45",
+            "addressLocality": "Spring",
+            "addressRegion": "TX",
+            "postalCode": "77380",
+            "addressCountry": "US"
+          },
+          "telephone": "+1-832-791-3321",
+          "priceRange": "$$",
+          "openingHoursSpecification": [
+            {
+              "@type": "OpeningHoursSpecification",
+              "dayOfWeek": ["Thursday"],
+              "opens": "19:00",
+              "closes": "20:30"
+            }
+          ],
+          "sameAs": [
+            "https://www.facebook.com/profile.php?id=61568719342267",
+            "https://www.instagram.com/thewoodlandslatindance/"
+          ]
+        }
+        </script>
+    <script type="application/ld+json">
+        {
+          "@context": "https://schema.org",
+          "@type": "FAQPage",
+          "mainEntity": [
+            {
+              "@type": "Question",
+              "name": "Can I just show up to a class?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "Absolutely! Check our schedule and come to the class of your choosing."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "Do I need a partner to join?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "No partner is required. We rotate partners during class to ensure everyone gets to practice."
+              }
+            },
+            {
+              "@type": "Question",
+              "name": "How do I register for classes?",
+              "acceptedAnswer": {
+                "@type": "Answer",
+                "text": "You can register online or just show up and handle registration at the door."
+              }
+            }
+          ]
+        }
+    </script>
 </head>
 <body>
     <%- include('../partials/navbar') %>

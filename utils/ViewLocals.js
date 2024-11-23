@@ -4,7 +4,7 @@ class ViewLocals {
         this.pricingLink = options.pricingLink || '/#pricing-section';
         this.faqsLink = options.faqsLink || '/#faqs-section';
         this.contactLink = options.contactLink || '#contact-section';
-        this.joinNewsletterLink = options.joinNewsletterLink || '/newsletter';
+        this.joinNewsletterLink = options.joinNewsletterLink || 'https://member.life/thewoodlandslatindance/register';
         this.pageTitle = options.pageTitle || 'The Woodlands Latin Dance';
         this.styleFiles = options.styleFiles || [];
     }

@@ -39,7 +39,7 @@ class EmailSender {
                 <a style="color: #198754;" href="https://www.instagram.com/thewoodlandslatindance/">📲Instagram</a>
                 <a style="color: #198754;" href="https://www.facebook.com/profile.php?id=61568719342267">🫱🏼‍🫲🏽Facebook</a>
                 <p>Turn🕺🏻, Spin💃🏻, Shine🪩 – Your Salsa Journey Starts Here!"</p>
-                <p style="color: white;font-weight: bold;font-size: 1.5rem;">~ The Woodlands Latin Dance<br><a style="font-size: 1rem;color: #198754;" href="tel:+18327913321">+1 (832) 791-3321</a></p>
+                <p style="font-weight: bold;font-size: 1.5rem;">~ The Woodlands Latin Dance<br><a style="font-size: 1rem;color: #198754;" href="tel:+18327913321">+1 (832) 791-3321</a></p>
                 </section>`, 
         }
     }

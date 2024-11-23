@@ -1,12 +1,13 @@
 <% layout('layouts/boilerplate') %>
 <div class="px-0 py-0 my-0 text-center hero-graphic">
     <div class="py-5 px-4 transparent-container">
-        <img class="d-block mx-auto mb-4" src="/res/images/logo.png" alt="" width="200" height="200">
+        <img class="d-block mx-auto mb-4" src="/res/images/logo.png" alt="The Woodlands Latin Dance Logo" width="200" height="200">
         <h1 class="display-5 fw-bold">The Woodlands Latin Dance</h1>
         <div class="col-lg-6 mx-auto">
+          <p>Latin dance classes in The Woodlands, TX</p>
           <p class="lead mb-4">Dance with passion 🔥, connect with culture 🎊 at The Woodlands Latin Dance</p>
           <div class="d-grid gap-2 d-sm-flex justify-content-sm-center">
-            <a href="<%= locals.joinNewsletterLink %>" type="button" class="btn btn-success btn-lg px-4 gap-3">Join our Newsletter!</a>
+            <a target="_blank" href="<%= locals.joinNewsletterLink %>" type="button" class="btn btn-success btn-lg px-4 gap-3">Register to get updates and sign up for classes!</a>
           </div>
         </div>
     </div>
@@ -14,44 +15,58 @@
 
 <div class="px-4 py-5 my-0" id="schedule-section">
     <div class="container-900px mx-auto">
-        <h1 class="mx-auto text-center display-4">Schedule</h1>
+        <h1 class="mx-auto text-center display-4">Dance Class Schedule</h1>
+        <h4 class="mx-auto text-center">Salsa and Bachata classes in The Woodlands</h4>
         <p class="lead">
-            Classes are held weekly, four times a month, and follow a progressive structure. Each week 
-            builds on the previous one, ensuring steady improvement. At the end of the four-week cycle, 
-            the series resets, making it easy to join at any time and start fresh.
+          Classes are held weekly, four times a month, following a progressive structure. Each week builds on the last, 
+          ensuring steady improvement. At the end of the four-week cycle, the series resets, making it easy to join at any time.
         </p>
     </div>
-    
 
-    </p>
     <div class="d-flex flex-column flex-md-row justify-content-around container-900px mx-auto">
       <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">BACHATA LEVEL 1</h5>
+          <h4 class="card-title">SALSA ALL LEVELS</h4>
           <p class="card-text">
-              This class will guide you step-by-step through the basics of Bachata, focusing on fundamental 
-              footwork, rhythm, and connection. Come as you are—no partner or experience required!
+            This Salsa class is a combination of footwork and partnerwork for all levels. We participate as guest instructors in this class teaching the higher level class. <strong>This class is managed by R&I Dance Studio.</strong>
+          </p>
+          <p>📅 DAYS: <strong>Wednesday</strong></p>
+          <p><strong>December: </strong> 4th, 11th</p>
+          <p>⏰ TIME: <strong>7 PM</strong></p>
+          <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
+          <a target="_blank" href="https://www.facebook.com/R.a.I.Dance" class="btn btn-success">Check out details</a>
+        </div>
+      </div>
+    </div>
+    
+
+    <div class="d-flex flex-column flex-md-row justify-content-around container-900px mx-auto">
+      <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
+        <div class="card-body">
+          <h4 class="card-title">BACHATA LEVEL 1</h4>
+          <p class="card-text">
+            This beginner bachata class will guide you step-by-step through the basics, focusing on fundamental footwork, rhythm, 
+            and connection. Come as you are—no partner or experience needed!
           </p>
           <p>📅 DAYS: <strong>Thursday</strong></p>
           <p><strong>January: </strong> 9th, 16th, 23rd, 30th</p>
           <p>⏰ TIME: <strong>8 PM</strong></p>
           <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">Join our Newsletter!</a>
+          <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out our calendar!</a>
         </div>
       </div>
       <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
         <div class="card-body">
-          <h5 class="card-title">BACHATA LEVEL 2</h5>
+          <h4 class="card-title">BACHATA LEVEL 2</h4>
           <p class="card-text">
-            In this class, a basic understanding of Bachata fundamentals (covered in Bachata Level 1) is expected. 
-            This is a course that builds on those foundational moves, introducing more complex patterns 
-            and techniques. No partner is needed to join!
+            This class builds on the fundamentals covered in Bachata Level 1, introducing more complex patterns 
+            and techniques. A basic understanding of Bachata is expected. No partner needed!
           </p>
           <p>📅 DAY: <strong>TBD</strong></p>
           <p><strong>February: </strong> TBD</p>
           <p>⏰ TIME: <strong>TBD</strong></p>
           <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a href="<%= locals.joinNewsletterLink %>" class="btn btn-success">Click here to stay updated!</a>
+          <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out our calendar!</a>
         </div>
       </div>
     </div>
@@ -67,11 +82,11 @@
       <div class="card-body">
         <h5 class="card-title">Walk-Ins - $25</h5>
         <p class="card-text">
-            Pay as you go! One time, passing by? Just came to check it out? Of course, join us. 
+          Pay as you go! Passing by or just here to check it out? You’re welcome to join.
         </p>
         <p></p>
-        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a target="_blank" href="https://buy.stripe.com/4gwaI4axOh09f9C6op" class="btn btn-success">Get Walk-In pass</a>
+        <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash or Zelle) or online by clicking below.</p>
+        <a target="_blank" href="https://member.life/thewoodlandslatindance/offer/5218" class="btn btn-success">Get Walk-In pass</a>
       </div>
     </div>
 
@@ -79,10 +94,10 @@
       <div class="card-body">
         <h5 class="card-title">Monthly Cycle - $75</h5>
         <p class="card-text">
-          This includes all sessions (4 classes) in a month for the class you choose. Check out our classes above👆🏻.
+          Includes all sessions (4 classes) in a month for the class of your choice. Check out our classes above! 👆🏻
         </p>
-        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a target="_blank" href="https://buy.stripe.com/8wM6rO6hybFP3qU4gg" class="btn btn-success">Get Monthly Cycle</a>
+        <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash or Zelle) or online by clicking below.</p>
+        <a target="_blank" href="https://member.life/thewoodlandslatindance/offer/5216" class="btn btn-success">Get Monthly Cycle</a>
       </div>
     </div>
 
@@ -90,10 +105,10 @@
       <div class="card-body">
         <h5 class="card-title">Monthly Unlimited - $100</h5>
         <p class="card-text">
-          For the more dedicated dancers. This package allows you to take any of the classes we offer throughout the month. Check out our classes above👆🏻.
+          For dedicated dancers! Take any class we offer throughout the month. Check out our classes above! 👆🏻
         </p>
-        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash or zelle) or clicking below (online)</p>
-        <a target="_blank" href="https://buy.stripe.com/cN29E0fS8dNXd1u146" class="btn btn-success">Get Monthly Unlimited</a>
+        <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash or Zelle) or online by clicking below.</p>
+        <a target="_blank" href="https://member.life/thewoodlandslatindance/offer/5217" class="btn btn-success">Get Monthly Unlimited</a>
       </div>
     </div>
 
@@ -101,10 +116,9 @@
       <div class="card-body">
         <h5 class="card-title">Private Lessons - $80</h5>
         <p class="card-text">
-          Do you want to get some personalized help? target exactly what you and only are struggling with? do you want one to one feedback? Give us a call or a message
-          and we'll set up a 1 hour private lesson with you.
+          Want personalized guidance or one-on-one feedback? Contact us to set up a private, 1-hour lesson tailored to your needs.
         </p>
-        <p><strong>💵Payment methods:</strong> Payment is handle on site (cash, zelle or online)</p>
+        <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash, Zelle) or online.</p>
         <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn btn-success">Contact The Woodlands Latin Dance</button>
         <div id="contactModal" class="modal" tabindex="-1">
           <div class="modal-dialog" >
@@ -114,10 +128,10 @@
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p>For private lessons please communicate directly with The Woodlands Latin Dance so that we can accomodate a 1 hour session with the instructor.</p>
-                <p>You can call to this number: <i class="fas fa-phone mr-3"></i> <a class="link" href="tel:+18327913321">+1 (832) 791-3321</a></p>
-                <p>You can send a direct message to either <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.instagram.com/thewoodlandslatindance/"><i class="fab fa-instagram"></i></a> or <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.facebook.com/profile.php?id=61568719342267"><i class="fab fa-facebook-f"></i></a></p>
-                <p>Or you can send an email to <i class="fas fa-envelope mr-3"></i><a class="link" href="mailto:TheWoodlandsLatinDance@gmail.com" target="_blank">TheWoodlandsLatinDance@gmail.com</a></p>
+                <p>For private lessons, please contact The Woodlands Latin Dance to arrange a 1-hour session with an instructor.</p>
+                <p>You can call: <i class="fas fa-phone mr-3"></i> <a class="link" href="tel:+18327913321">+1 (832) 791-3321</a></p>
+                <p>You can send a message on <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.instagram.com/thewoodlandslatindance/"><i class="fab fa-instagram"></i></a> or <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.facebook.com/profile.php?id=61568719342267"><i class="fab fa-facebook-f"></i></a></p>
+                <p>Or Email us at: <i class="fas fa-envelope mr-3"></i><a class="link" href="mailto:TheWoodlandsLatinDance@gmail.com" target="_blank">TheWoodlandsLatinDance@gmail.com</a></p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>
@@ -139,26 +153,27 @@
       <div class="question-shadow p-2">
         <a class="question" data-bs-toggle="collapse" href="#q1" role="button", aria-expanded="false" aria-controls="q1">🕺🏻 Can I... just show up?</a>
         <div class="collapse" id="q1">
-          <p class="">Absolutely! check out our schedule and come to the class of your choosing.</p>
+          <p>Absolutely! Check out our schedule and come to the class of your choice.</p>
         </div>
       </div>
       <div class="question-shadow p-2">
         <a class="question" data-bs-toggle="collapse" href="#q2" role="button", aria-expanded="false" aria-controls="q1">💃🏻 What do I wear?</a>
         <div class="collapse" id="q2">
-          <p class="">Atheltic clothes that allow full range of motion and make you feel confortable. Well-fitting sneakers or flats are just fine.</p>
-          <p>Dance shoes or heels are an investment so let's get you started with dancing before you get your own dancing pair.</p>
+          <p>Athletic clothes that allow full range of motion and make you feel comfortable. Well-fitting sneakers or flats work great. Dance shoes or heels are optional—let’s get you started before investing in special footwear.</p>
         </div>
       </div>
       <div class="question-shadow p-2">
         <a class="question" data-bs-toggle="collapse" href="#q3" role="button", aria-expanded="false" aria-controls="q3">🕺🏻 Do I need a partner?</a>
         <div class="collapse" id="q3">
-          <p class="">No partner is required for any of the classes. We will be rotating leads and follows throughout the class so that everybody has a chance to try the moves.</p>
+          <p>No partner is required for any of the classes. We rotate leads and follows so everyone has a chance to practice.</p>
         </div>
       </div>
       <div class="question-shadow p-2">
         <a class="question" data-bs-toggle="collapse" href="#q4" role="button", aria-expanded="false" aria-controls="q4">💃🏻 How do I register for classes?</a>
         <div class="collapse" id="q4">
-          <p class="">Show up and we will take care of you at the door.</p>
+          You can register in advance online by visiting 
+          <a class="link" target="_blank" href="https://member.life/thewoodlandslatindance/register">our registration page</a>. 
+          If you prefer, you can also just show up, and we’ll take care of everything at the door!
         </div>
       </div>
   </div>
