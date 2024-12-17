@@ -6,6 +6,6 @@ module.exports.renderHomepage = async (req, res) => {
         pricingLink: '#pricing-section',
         faqsLink: '#faqs-section',
         styleFiles: ['mainpage.css']
-    });
+    });    
     res.render('main/index', {locals: viewLocals});
 }
