@@ -25,6 +25,8 @@ app.use(express.static(path.join(__dirname, './public'), {
     immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
   }));
 
+app.use('/sitemap.xml', express.static(path.join(__dirname, 'public', 'sitemap.xml')));
+
 app.use(express.urlencoded({extended: true}));
 app.use(express.json());
 app.use(methodOverride('_method'));
