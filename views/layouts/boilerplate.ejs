@@ -15,7 +15,11 @@
     <% locals.styleFiles?.forEach((file) => { %>
         <link href="/stylesheets/<%=file%>" rel="stylesheet"> 
     <% }) %>
-    <title>The Woodlands Latin Dance - Salsa & Bachata Classes</title>
+    <% if(locals.canonicalTag) { %>
+        <link rel="canonical" href="https://thewoodlandslatindance.com/<%=locals.canonicalTag%>">
+    <% } %>
+
+    <title><%=locals.pageTitle%></title>
     
     <!-- Structured Data Markup -->
     <script type="application/ld+json">

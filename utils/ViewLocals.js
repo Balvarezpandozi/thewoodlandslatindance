@@ -8,6 +8,7 @@ class ViewLocals {
         this.joinNewsletterLink = options.joinNewsletterLink || 'https://member.life/thewoodlandslatindance/register';
         this.pageTitle = options.pageTitle || 'The Woodlands Latin Dance';
         this.styleFiles = options.styleFiles || [];
+        this.canonicalTag = options.canonicalTag || undefined;
     }
 }
 

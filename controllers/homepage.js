@@ -5,7 +5,8 @@ module.exports.renderHomepage = async (req, res) => {
         scheduleLink: '#schedule-section',
         pricingLink: '#pricing-section',
         faqsLink: '#faqs-section',
-        styleFiles: ['mainpage.css']
+        styleFiles: ['mainpage.css'],
+        pageTitle: "The Woodlands Latin Dance - Salsa & Bachata Classes"
     });    
     res.render('main/index', {locals: viewLocals});
 }
