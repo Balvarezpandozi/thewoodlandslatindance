@@ -11,6 +11,7 @@ const Database = require('./services/database');
 const homepageRouter = require('./routes/homepage');
 const newsletterRouter = require('./routes/newsletter');
 const studentResourcesRouter = require('./routes/studentResources');
+const qrCodeRouter = require('./routes/qrCode');
 
 const db = new Database();
 db.connect();
@@ -34,6 +35,7 @@ app.use(methodOverride('_method'));
 app.use('/', homepageRouter);
 app.use('/newsletter', newsletterRouter);
 app.use('/studentResources', studentResourcesRouter);
+app.use('/qrCode', qrCodeRouter)
 
 app.all('*', (req, res, next) => {
     next(new ExpressError('Page not found', 404));
