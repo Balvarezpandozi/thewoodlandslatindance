@@ -1,5 +1,5 @@
 .hero-graphic {
-    background-image: url("../res/lazy-images/blogHeroGraphicLazy.webp");
+    background-image: url("../res/images/blogHeroGraphic.webp");
     background-size: cover;
     transition: all ease-in-out 2s;
 }

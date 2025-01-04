@@ -185,21 +185,5 @@
 
   myModal.addEventListener('shown.bs.modal', () => {
     myInput.focus()
-  })
-
-  const imagesToLoad = document.querySelectorAll('.hero-graphic');
-
-   const observer = new IntersectionObserver((entries, observer) => {
-       entries.forEach(entry => {
-           if (entry.isIntersecting) {
-               const image = entry.target;
-               image.style.backgroundImage = `url(${image.dataset.src})`;
-               observer.unobserve(image); // Stop observing once loaded
-           }
-       });
-   });
-
-   imagesToLoad.forEach(image => {
-       observer.observe(image);
-   });
+  });
 </script>
