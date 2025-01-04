@@ -9,7 +9,19 @@ class ViewLocals {
         this.pageTitle = options.pageTitle || 'The Woodlands Latin Dance';
         this.styleFiles = options.styleFiles || [];
         this.canonicalTag = options.canonicalTag || undefined;
+        this.phoneNumber = process.env.PHONE_NUMBER;
+        this.formattedPhoneNumber = formatNumber(process.env.PHONE_NUMBER);
     }
+}
+
+function formatNumber(number) {
+    // Extract area code, first three digits, and last four digits
+    const areaCode = number.slice(2, 5);
+    const firstPart = number.slice(5, 8);
+    const secondPart = number.slice(8);
+
+    // Format and return the transformed phone number
+    return `+1 (${areaCode}) ${firstPart}-${secondPart}`;
 }
 
 module.exports = ViewLocals;
