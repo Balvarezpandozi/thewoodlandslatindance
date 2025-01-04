@@ -8,10 +8,17 @@
     <meta name="keywords" content="salsa classes, bachata classes, dance lessons, The Woodlands, Latin dance, Spring TX, beginner">
     <meta name="author" content="The Woodlands Latin Dance">
     <link rel="icon" href="/res/images/logo.png">
-    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" >
-    <link href="/stylesheets/fontawesome/css/fontawesome.css" rel="stylesheet" />
-    <link href="/stylesheets/fontawesome/css/brands.css" rel="stylesheet" />
-    <link href="/stylesheets/fontawesome/css/solid.css" rel="stylesheet" />
+    <link href="/stylesheets/bootstrap.min.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/stylesheets/bootstrap.min.css"></noscript>
+
+    <link href="/stylesheets/fontawesome/css/fontawesome.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/stylesheets/fontawesome/css/fontawesome.css"></noscript>
+
+    <link href="/stylesheets/fontawesome/css/brands.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/stylesheets/fontawesome/css/brands.css"></noscript>
+    
+    <link href="/stylesheets/fontawesome/css/solid.css" rel="preload" as="style" onload="this.onload=null;this.rel='stylesheet'">
+    <noscript><link rel="stylesheet" href="/stylesheets/fontawesome/css/solid.css"></noscript>
     <% locals.styleFiles?.forEach((file) => { %>
         <link href="/stylesheets/<%=file%>" rel="stylesheet"> 
     <% }) %>
