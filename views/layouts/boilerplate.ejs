@@ -22,7 +22,7 @@
     <% locals.styleFiles?.forEach((file) => { %>
         <link href="/stylesheets/<%=file%>" rel="stylesheet"> 
     <% }) %>
-    <% if(locals.canonicalTag) { %>
+    <% if(locals.canonicalTag == undefined) { %>
         <link rel="canonical" href="https://thewoodlandslatindance.com/<%=locals.canonicalTag%>">
     <% } %>
 
