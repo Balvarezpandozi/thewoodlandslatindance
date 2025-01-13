@@ -1,44 +1,48 @@
-if(process.env.NODE_ENV !== 'production') require('dotenv').config();
-const express = require('express');
-const path = require('path');
-const methodOverride = require('method-override');
-const ejsMate = require('ejs-mate');
-const flash = require('connect-flash');
-const { ExpressError, errorHandler } = require('./utils/ErrorHandler');
+if (process.env.NODE_ENV !== "production") require("dotenv").config();
+const express = require("express");
+const path = require("path");
+const methodOverride = require("method-override");
+const ejsMate = require("ejs-mate");
+const { ExpressError, errorHandler } = require("./utils/ErrorHandler");
 
-const Database = require('./services/database');
+const Database = require("./services/database");
 
-const homepageRouter = require('./routes/homepage');
-const newsletterRouter = require('./routes/newsletter');
-const studentResourcesRouter = require('./routes/studentResources');
-const qrCodeRouter = require('./routes/qrCode');
+const homepageRouter = require("./routes/homepage");
+const newsletterRouter = require("./routes/newsletter");
+const studentResourcesRouter = require("./routes/studentResources");
+const qrCodeRouter = require("./routes/qrCode");
 
 const db = new Database();
 db.connect();
 
 const app = express();
 
-app.engine('ejs', ejsMate);
-app.set('view engine', 'ejs');
-app.set('views', path.join(__dirname, 'views'));
-app.use(express.static(path.join(__dirname, './public'), {
-    maxAge: '30d', // Cache for 30 days (in milliseconds or a string accepted by the ms module)
+app.engine("ejs", ejsMate);
+app.set("view engine", "ejs");
+app.set("views", path.join(__dirname, "views"));
+app.use(
+  express.static(path.join(__dirname, "./public"), {
+    maxAge: "30d", // Cache for 30 days (in milliseconds or a string accepted by the ms module)
     immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
-  }));
+  })
+);
 
-app.use('/sitemap.xml', express.static(path.join(__dirname, 'public', 'sitemap.xml')));
+app.use(
+  "/sitemap.xml",
+  express.static(path.join(__dirname, "public", "sitemap.xml"))
+);
 
-app.use(express.urlencoded({extended: true}));
+app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
-app.use(methodOverride('_method'));
+app.use(methodOverride("_method"));
 
-app.use('/', homepageRouter);
-app.use('/newsletter', newsletterRouter);
-app.use('/studentResources', studentResourcesRouter);
-app.use('/qrCode', qrCodeRouter)
+app.use("/", homepageRouter);
+app.use("/newsletter", newsletterRouter);
+app.use("/studentResources", studentResourcesRouter);
+app.use("/qrCode", qrCodeRouter);
 
-app.all('*', (req, res, next) => {
-    next(new ExpressError('Page not found', 404));
+app.all("*", (req, res, next) => {
+  next(new ExpressError("Page not found", 404));
 });
 
 app.use(errorHandler);

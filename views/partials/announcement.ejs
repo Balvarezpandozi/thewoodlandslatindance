@@ -1,0 +1,23 @@
+<% if(locals.announcement) { %> <% const styleClass =
+locals.announcement.positive ? "success" : "danger" %>
+<div
+  class="alert alert-<%=styleClass%> alert-dismissible fade show announcement"
+  role="alert"
+>
+  <h1 class="text-center"><%= locals.announcement.title %></h1>
+  <div class="container-900px mx-auto">
+    <p><%= locals.announcement.description %></p>
+    <% if(locals.announcement.link) { %>
+    <a href="<%= locals.announcement.link %>"
+      ><%= locals.announcement.link %></a
+    >
+    <% } %>
+  </div>
+  <button
+    type="button"
+    class="btn-close"
+    data-bs-dismiss="alert"
+    aria-label="Close"
+  ></button>
+</div>
+<% } %>

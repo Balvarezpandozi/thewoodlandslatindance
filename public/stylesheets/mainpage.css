@@ -1,50 +1,67 @@
 .hero-graphic {
-    background-image: url("../res/images/blogHeroGraphic.jpg");
-    background-size: cover;
-    transition: all ease-in-out 2s;
+  background-image: url("../res/images/blogHeroGraphic.jpg");
+  background-size: cover;
+  transition: all ease-in-out 2s;
 }
 
 .transparent-container {
-    background-color: rgb(255, 255, 255, 0.75)
+  background-color: rgb(255, 255, 255, 0.75);
 }
 
 .container-900px {
-    max-width: 900px;
+  max-width: 900px;
 }
 
 .pricing-container {
-    background-color: rgb(240, 240, 240)
+  background-color: rgb(240, 240, 240);
 }
 
 .faqs-container {
-    background-color: rgb(222, 253, 224);
+  background-color: rgb(222, 253, 224);
 }
 
 .question {
-    font-size: 1.5rem;
-    text-decoration: none;
-    color: #151815;
+  font-size: 1.5rem;
+  text-decoration: none;
+  color: #151815;
 }
 
 .disabled-link-text {
-    color: #000000 !important;
+  color: #000000 !important;
 }
 
 .question-shadow {
-    border-bottom: rgb(0, 102, 14) solid 2px;
-    transition: all 0.2s;
+  border-bottom: rgb(0, 102, 14) solid 2px;
+  transition: all 0.2s;
 }
 
 .question-shadow:hover {
-    background-color: rgba(0, 139, 19, 0.3);
+  background-color: rgba(0, 139, 19, 0.3);
 }
 
 .link {
-    color: rgb(0, 197, 26);
-    text-decoration: underline;
+  color: rgb(0, 197, 26);
+  text-decoration: underline;
 }
 
 .link:hover {
-    color: rgb(0, 91, 12);
-    text-decoration: underline;
+  color: rgb(0, 91, 12);
+  text-decoration: underline;
+}
+
+.announcement {
+  border-radius: 0px;
+  margin: 0px;
+}
+
+.positive {
+  background: rgb(112, 245, 130);
+}
+
+.negative {
+  background: rgb(253, 113, 113);
+}
+
+.announcement h1 {
+  font-size: 2rem;
 }
