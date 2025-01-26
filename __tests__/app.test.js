@@ -4,10 +4,14 @@ const Announcements = require("../models/announcement");
 const { default: mongoose } = require("mongoose");
 
 describe("GET /", () => {
+  afterAll(async () => {
+    // Close the database connection after all tests
+    await mongoose.connection.close();
+  });
+
   it("responds with a 200 status code", async () => {
     const res = await request(app).get("/");
     expect(res.statusCode).toBe(200);
-    mongoose.connection.close();
   });
 
   it("responds with an HTML page", async () => {
@@ -16,7 +20,6 @@ describe("GET /", () => {
       return {};
     });
     await request(app).get("/").expect("Content-Type", /html/);
-    mongoose.connection.close();
   });
 });
 
