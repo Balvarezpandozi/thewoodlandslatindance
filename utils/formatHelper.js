@@ -1,12 +1,11 @@
 function dateToUTCString(date) {
-  date = new Date();
   const year = date.getFullYear();
   const month = date.getMonth() + 1;
 
   const day = date.getDate();
 
   return `${year}-${month < 9 ? `0${month}` : `${month}`}-${
-    day < 9 ? `0${day}` : `${day}`
+    day + 1 < 9 ? `0${day + 1}` : `${day + 1}`
   }T00:00:00.000Z`;
 }
 

@@ -26,7 +26,7 @@ function validateEmail(email) {
 
 module.exports.validateEmail = validateEmail;
 
-function validateLink(link) {
+function validateLink(url) {
   const urlPattern =
     /^(https?:\/\/)?([\da-z.-]+)\.([a-z.]{2,6})([\w .-]*)*\/?$/;
   return urlPattern.test(url);

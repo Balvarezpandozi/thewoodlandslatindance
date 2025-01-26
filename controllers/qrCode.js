@@ -1,23 +1,25 @@
-const Redirection = require('../models/redirection');
-const QRCodeLead = require('../models/qrCodeLead');
+const Redirection = require("../models/redirection");
+const QRCodeLead = require("../models/qrCodeLead");
 
 module.exports.saveLeadAndRedirect = async (req, res) => {
-    const { redirectionID } = req.params;
-    const redirection = await Redirection.findOne({ redirectionID: redirectionID });
-    
-    if(null == redirection) return res.redirect('/');
+  const { redirectionID } = req.params;
+  const redirection = await Redirection.findOne({
+    redirectionID: redirectionID,
+  });
 
-    const qrCodeLead = new QRCodeLead({
-        timestamp: new Date(),
-        ipAddress: req.ip,
-        userAgent: req.headers['user-agent'],
-        referer: req.headers['referer'] || 'Direct',
-        browserLanguage: req.headers['accept-language']
-    });
-    redirection.leads.push(qrCodeLead);
+  if (null == redirection) return res.redirect("/");
 
-    await qrCodeLead.save();
-    await redirection.save();
+  const qrCodeLead = new QRCodeLead({
+    timestamp: new Date(),
+    ipAddress: req.ip,
+    userAgent: req.headers["user-agent"],
+    browserLanguage: req.headers["accept-language"],
+  });
 
-    res.redirect(redirection.urlRedirection);
-}
+  redirection.leads.push(qrCodeLead);
+
+  await qrCodeLead.save();
+  await redirection.save();
+
+  res.redirect(redirection.urlRedirection);
+};

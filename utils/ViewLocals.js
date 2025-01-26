@@ -14,8 +14,8 @@ class ViewLocals {
     this.pageTitle = options.pageTitle || "The Woodlands Latin Dance";
     this.styleFiles = options.styleFiles || [];
     this.canonicalTag = options.canonicalTag || undefined;
-    this.phoneNumber = process.env.PHONE_NUMBER;
-    this.formattedPhoneNumber = formatNumber(process.env.PHONE_NUMBER);
+    this.phoneNumber = process.env.PHONE_NUMBER || "+12812022058";
+    this.formattedPhoneNumber = formatNumber(this.phoneNumber);
     this.announcement = options.announcement || undefined;
   }
 }
