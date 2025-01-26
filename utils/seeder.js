@@ -1,6 +1,5 @@
 // This is disposable code to populate the database with dummy data. DO NOT USE IN PRODUCTION. DO NOT TEST
-const dotenv = require("dotenv");
-dotenv.config();
+require("dotenv").config();
 const Database = require("../services/database");
 database = new Database();
 const Redirection = require("../models/redirection");
@@ -8,7 +7,7 @@ const Announcement = require("../models/announcement");
 
 database.connect();
 
-Redirection.deleteMany({});
+//Redirection.deleteMany({});
 
 // SCHEDULE
 // const redirection1 = new Redirection({
@@ -25,19 +24,25 @@ Redirection.deleteMany({});
 // });
 // redirection2.save();
 
-//Announcement
-const date = new Date().toLocaleString();
-console.log(date);
-console.log(new Date());
-
-const announcement = new Announcement({
-  title: "Test Announcement",
-  description: "Announcement description 🕺🏻",
-  showFrom: new Date("2025-01-11T00:00:00.000Z"),
-  showUntil: new Date("2025-01-13T00:00:00.000Z"),
-  positive: true,
+const redirection3 = new Redirection({
+  redirectionID: "FlyerLocation01",
+  locationDescription: "TBD (Restaurant)",
+  urlRedirection: "https://TheWoodlandsLatinDance.com",
 });
+redirection3.save();
 
-announcement.save();
-console.log("Done saving");
-//process.exit(0);
+//Announcement
+// const date = new Date().toLocaleString();
+// console.log(date);
+// console.log(new Date());
+
+// const announcement = new Announcement({
+//   title: "Test Announcement",
+//   description: "Announcement description 🕺🏻",
+//   showFrom: new Date("2025-01-11T00:00:00.000Z"),
+//   showUntil: new Date("2025-01-13T00:00:00.000Z"),
+//   positive: true,
+// });
+
+// announcement.save();
+// console.log("Done saving");

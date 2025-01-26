@@ -6,7 +6,7 @@ module.exports.renderHomepage = async (req, res) => {
   const currDate = new Date();
   const announcement = await Announcements.findOne({
     showFrom: { $lte: new Date(dateToUTCString(currDate)) },
-    showUntil: { $gte: new Date("2025-01-13T00:00:00.000Z") },
+    showUntil: { $gte: new Date(dateToUTCString(currDate)) },
   });
 
   const viewLocals = new ViewLocals({
