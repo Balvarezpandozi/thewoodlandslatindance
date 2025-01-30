@@ -1,0 +1,42 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">Admin Portal Login</h1>
+    <form
+      action="/auth/login"
+      method="POST"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label for="email">Email</label>
+        <input
+          type="email"
+          class="form-control"
+          id="email"
+          name="email"
+          placeholder="Email@email.com"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter your username...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="password">Password</label>
+        <input
+          type="password"
+          class="form-control"
+          id="password"
+          name="password"
+          placeholder="Password"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter your password...</div>
+      </div>
+      <button type="submit" class="btn btn-success">Login</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/login.js"></script>

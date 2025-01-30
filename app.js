@@ -4,14 +4,18 @@ const path = require("path");
 const methodOverride = require("method-override");
 const ejsMate = require("ejs-mate");
 const { ExpressError, errorHandler } = require("./utils/ErrorHandler");
+const session = require("express-session");
+const passport = require("passport");
+const LocalStrategy = require("passport-local");
+const User = require("./models/user");
 
 const Database = require("./services/database");
 
 const homepageRouter = require("./routes/homepage");
-const newsletterRouter = require("./routes/newsletter");
 const studentResourcesRouter = require("./routes/studentResources");
 const qrCodeRouter = require("./routes/qrCode");
 const adminRouter = require("./routes/admin");
+const userRouter = require("./routes/user");
 
 const db = new Database();
 db.connect();
@@ -27,21 +31,42 @@ app.use(
     //immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
   })
 );
-
 app.use(
   "/sitemap.xml",
   express.static(path.join(__dirname, "public", "sitemap.xml"))
 );
-
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
+app.use(
+  session({
+    secret: process.env.SESSION_SECRET,
+    resave: false,
+    saveUninitialized: true,
+    cookie: {
+      expires: 1000 * 60 * 60 * 24 * 7,
+    },
+  })
+);
+//Authentication
+app.use(passport.initialize());
+app.use(passport.session());
+passport.use(
+  new LocalStrategy(
+    {
+      usernameField: "email",
+    },
+    User.authenticate()
+  )
+);
+passport.serializeUser(User.serializeUser());
+passport.deserializeUser(User.deserializeUser());
 
 app.use("/", homepageRouter);
-app.use("/newsletter", newsletterRouter);
 app.use("/studentResources", studentResourcesRouter);
 app.use("/qrCode", qrCodeRouter);
 app.use("/adminportal", adminRouter);
+app.use("/auth", userRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));
