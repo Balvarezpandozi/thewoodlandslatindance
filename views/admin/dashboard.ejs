@@ -1,0 +1,33 @@
+<% layout('layouts/boilerplate') %>
+<div class="container-900px mx-auto my-5 px-5">
+  <h1 class="mx-auto text-center display-4">Dashboard</h1>
+  <h2 class="mx-auto display-5">Announcements</h2>
+  <a href="/adminportal/announcement/new">Create Announcement</a>
+  <div class="card-group">
+    <% for(let announcement of announcements) { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= announcement.title %></h5>
+        <p class="card-text"><%= announcement.description %></p>
+        <p>
+          Context: <% if(announcement.positive) { %> Positive <% } else { %>
+          Negative <% } %>
+        </p>
+        <p>Show from <%= announcement.showFrom.toISOString() %></p>
+        <p>Show until <%= announcement.showUntil.toISOString() %></p>
+        <a href="<%= announcement.link %>" class="card-link"
+          ><%= announcement.link %></a
+        >
+        <form
+          action="/adminportal/announcement/<%= announcement.id %>?_method=DELETE"
+          method="POST"
+        >
+          <button>Delete</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
+  <h2 class="mx-auto display-5">Classes</h2>
+  <h2 class="mx-auto display-5">Prices</h2>
+</div>

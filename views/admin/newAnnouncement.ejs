@@ -1,0 +1,87 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">New Announcement</h1>
+    <form
+      action="/adminportal/announcement/new"
+      method="POST"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="announcement[title]"
+          placeholder="The best announcement title example"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the title...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="announcement[description]"
+          placeholder="Describe the announcement here"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter description...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="inputLink">Link</label>
+        <input
+          type="text"
+          class="form-control"
+          id="inputLink"
+          name="announcement[link]"
+          placeholder="https://thewoodlandslatindance.com"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter valid link.</div>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="yes"
+          id="announcementContext"
+          name="announcement[positive]"
+        />
+        <label class="form-check-label" for="announcementContext">
+          Positive Announcement?
+        </label>
+      </div>
+      <div class="form-group mb-3">
+        <label for="showFrom">Show From:</label>
+        <input
+          id="showFrom"
+          name="announcement[showFrom]"
+          class="form-control date-picker"
+          type="date"
+          required
+        />
+      </div>
+      <div class="form-group mb-3">
+        <label for="showUntil">Show Until:</label>
+        <input
+          id="showUntil"
+          name="announcement[showUntil]"
+          class="form-control date-picker"
+          type="date"
+          required
+        />
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/announcementForm.js"></script>

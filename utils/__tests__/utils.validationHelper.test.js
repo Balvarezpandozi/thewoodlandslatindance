@@ -59,13 +59,18 @@ describe("Test validation helper", () => {
     expect(validateLink(testWebsite)).toBe(false);
   });
 
-  it("should return true regardless that it does not have https:// start", () => {
+  it("should return false since it does not have https:// start", () => {
     const testWebsite = "thewoodlandslatindance.com";
-    expect(validateLink(testWebsite)).toBe(true);
+    expect(validateLink(testWebsite)).toBe(false);
   });
 
   it("should return true given valid website", () => {
     const testWebsite = "https://thewoodlandslatindance.com";
+    expect(validateLink(testWebsite)).toBe(true);
+  });
+
+  it("should return true given valid website", () => {
+    const testWebsite = "https://thewoodlandslatindance.com/valentines";
     expect(validateLink(testWebsite)).toBe(true);
   });
 });

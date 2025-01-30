@@ -24,25 +24,25 @@ database.connect();
 // });
 // redirection2.save();
 
-const redirection3 = new Redirection({
-  redirectionID: "FlyerLocation01",
-  locationDescription: "TBD (Restaurant)",
-  urlRedirection: "https://TheWoodlandsLatinDance.com",
-});
-redirection3.save();
+// const redirection3 = new Redirection({
+//   redirectionID: "FlyerLocation01",
+//   locationDescription: "TBD (Restaurant)",
+//   urlRedirection: "https://TheWoodlandsLatinDance.com",
+// });
+// redirection3.save();
 
 //Announcement
 // const date = new Date().toLocaleString();
 // console.log(date);
 // console.log(new Date());
 
-// const announcement = new Announcement({
-//   title: "Test Announcement",
-//   description: "Announcement description 🕺🏻",
-//   showFrom: new Date("2025-01-11T00:00:00.000Z"),
-//   showUntil: new Date("2025-01-13T00:00:00.000Z"),
-//   positive: true,
-// });
+const announcement = new Announcement({
+  title: "Test Announcement",
+  description: "Announcement description 🕺🏻",
+  showFrom: new Date("2025-01-11T00:00:00.000Z"),
+  showUntil: new Date("2025-01-13T00:00:00.000Z"),
+  positive: true,
+});
 
-// announcement.save();
+announcement.save();
 // console.log("Done saving");
