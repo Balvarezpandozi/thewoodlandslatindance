@@ -23,8 +23,8 @@
         </p>
     </div>
 
+    <div class="d-flex flex-wrap flex-column flex-md-row justify-content-around container-900px mx-auto">
     <% for(let danceClass of danceClasses) { %>
-    <div class="d-flex flex-column flex-md-row justify-content-around container-900px mx-auto">
       <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
         <div class="card-body">
           <h3 class="card-title"><%= danceClass.title %></h3>
@@ -42,8 +42,8 @@
           <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out details</a>
         </div>
       </div>
-    </div>
     <% } %>
+  </div>
 </div>
 
 <div class="px-4 py-5 my-0 pricing-container" id="pricing-section">

@@ -10,20 +10,7 @@
     form.addEventListener(
       "submit",
       function (event) {
-        let isValid = true;
-
-        const datesInput = form.querySelector("#dates");
-
-        const datesPattern =
-          /^([A-Za-z]+:\d{1,2}(st|nd|rd|th)(,\d{1,2}(st|nd|rd|th))*;)+/;
-        if (!datesPattern.test(datesInput.value)) {
-          datesInput.setCustomValidity("Enter valid dates...");
-          isValid = false;
-        }
-
-        console.log(isValid);
-
-        if (!isValid || !form.checkValidity()) {
+        if (!form.checkValidity()) {
           event.preventDefault();
           event.stopPropagation();
         }

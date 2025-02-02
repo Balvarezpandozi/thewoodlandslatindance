@@ -101,5 +101,10 @@ describe("Test validation helper", () => {
       const datesTest = "";
       expect(validateDanceClassDates(datesTest)).toBe(false);
     });
+
+    it("Should return true for valid date", () => {
+      const datesTest = "February:6th,13th,20th,27th;";
+      expect(validateDanceClassDates(datesTest)).toBe(true);
+    });
   });
 });

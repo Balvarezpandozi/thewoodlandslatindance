@@ -82,10 +82,11 @@
           id="dates"
           name="danceClass[dates]"
           placeholder="February:8th,15th,22nd;March:1st;"
+          pattern="^([A-Za-z]+:\d{1,2}(st|nd|rd|th)(,\d{1,2}(st|nd|rd|th))*;)+"
           required
         />
         <div class="valid-feedback">Looks good!</div>
-        <div class="invalid-feedback">Enter the dates here here...</div>
+        <div class="invalid-feedback">Enter the dates here...</div>
       </div>
       <button type="submit" class="btn btn-success">Submit</button>
     </form>
