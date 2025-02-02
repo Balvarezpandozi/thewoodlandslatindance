@@ -22,10 +22,12 @@
   "homepage": "https://github.com/Balvarezpandozi/thewoodlandslatindance#readme",
   "devDependencies": {
     "jest": "^29.7.0",
+    "mongodb-memory-server": "^10.1.3",
     "supertest": "^7.0.0"
   },
   "dependencies": {
     "connect-flash": "^0.1.1",
+    "connect-mongo": "^5.1.0",
     "dotenv": "^16.4.5",
     "ejs": "^3.1.10",
     "ejs-mate": "^4.0.0",

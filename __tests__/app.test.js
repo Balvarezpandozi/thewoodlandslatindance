@@ -10,6 +10,10 @@ describe("GET /", () => {
   });
 
   it("responds with a 200 status code", async () => {
+    const announcementsMock = jest.spyOn(Announcements, "findOne");
+    announcementsMock.mockImplementation(() => {
+      return {};
+    });
     const res = await request(app).get("/");
     expect(res.statusCode).toBe(200);
   });
@@ -39,7 +43,14 @@ describe("GET unexistent route", () => {
 
 describe("Test importing production environment variables when", () => {
   it("does not import the variables in the env file", async () => {
-    const dbMock = jest.mock("../services/database");
+    jest.mock("../services/database", () => {
+      return jest.fn().mockImplementation(() => ({
+        connect: jest.fn(),
+        createMongoStore: jest.fn().mockReturnValue({
+          on: jest.fn(),
+        }),
+      }));
+    });
     jest.resetModules();
     process.env.NODE_ENV = "production";
     const mock = jest.spyOn(require("dotenv"), "config");
@@ -48,7 +59,14 @@ describe("Test importing production environment variables when", () => {
   });
 
   it("imports the variables in the env file", async () => {
-    const dbMock = jest.mock("../services/database");
+    const dbMock = jest.mock("../services/database", () => {
+      return jest.fn().mockImplementation(() => ({
+        connect: jest.fn(),
+        createMongoStore: jest.fn().mockReturnValue({
+          on: jest.fn(),
+        }),
+      }));
+    });
     jest.resetModules();
     process.env.NODE_ENV = "development";
     const mock = jest.spyOn(require("dotenv"), "config");
