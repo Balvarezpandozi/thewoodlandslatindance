@@ -1,0 +1,93 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">New Price</h1>
+    <a href="/adminportal">Dashboard</a>
+    <form
+      action="/adminportal/price/new"
+      method="POST"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label for="name">Price Name</label>
+        <input
+          type="text"
+          class="form-control"
+          id="name"
+          name="price[name]"
+          placeholder="The best price name example"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the name...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="price[description]"
+          placeholder="Describe the price here"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter description...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="price">Price</label>
+        <input
+          type="number"
+          class="form-control"
+          step="1"
+          id="price"
+          name="price[price]"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter description...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="buttonPrompt">Button Prompt</label>
+        <input
+          type="text"
+          class="form-control"
+          id="buttonPrompt"
+          name="price[buttonPrompt]"
+          placeholder="Write the price button prompt here"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter button prompt...</div>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="yes"
+          id="isDisabled"
+          name="price[isDisabled]"
+        />
+        <label class="form-check-label" for="isDisbaled">
+          Is this price disabled?
+        </label>
+      </div>
+      <div class="form-check">
+        <input
+          class="form-check-input"
+          type="checkbox"
+          value="yes"
+          id="contactBooking"
+          name="price[contactBooking]"
+        />
+        <label class="form-check-label" for="contactBooking">
+          Do customers need to contact to book?
+        </label>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/priceForm.js"></script>

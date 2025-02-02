@@ -50,50 +50,20 @@
   <div class="container-900px mx-auto">
       <h1 class="mx-auto text-center display-4">Pricing</h1>
   </div>
-
   <div class="d-flex flex-wrap flex-column flex-md-row justify-content-around container-900px mx-auto">
-    <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
+    <% for(let price of prices) { %>
+    <div class="card my-2 align-self-stretch flex-grow-1 mx-1" style="width: 18rem;">
       <div class="card-body">
-        <h2 class="card-title">Walk-Ins - $25</h2>
+        <h2 class="card-title"><%= price.name %> - $<%= price.price %></h2>
         <p class="card-text">
-          Pay as you go! Passing by or just here to check it out? You’re welcome to join.
+          <%= price.description %>
         </p>
-        <p></p>
+        <% if(!price.contactBooking) { %> 
         <p><strong>💵Payment methods:</strong> <a class="link" target="_blank" href="https://member.life/thewoodlandslatindance/register">SIGN UP</a> and pay with a card online. We also accept cash or Zelle onsite.</p>
-        <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="btn btn-success">Get Walk-In pass</a>
-      </div>
-    </div>
-
-    <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
-      <div class="card-body">
-        <h2 class="card-title">Monthly Cycle - $70</h2>
-        <p class="card-text">
-          Includes all sessions (4 classes) in a month for the class of your choice. Check out our classes above! 👆🏻
-        </p>
-        <p><strong>💵Payment methods:</strong> <a class="link" target="_blank" href="https://member.life/thewoodlandslatindance/register">SIGN UP</a> and pay with a card online. We also accept cash or Zelle onsite.</p>
-        <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="btn btn-success">Get Monthly Cycle</a>
-      </div>
-    </div>
-
-    <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
-      <div class="card-body">
-        <h2 class="card-title">Monthly Unlimited - $100</h2>
-        <p class="card-text">
-          For dedicated dancers! Take any class we offer throughout the month. Check out our classes above! 👆🏻 (Does not include classes with R&I)
-        </p>
-        <p><strong>💵Payment methods:</strong> <a class="link" target="_blank" href="https://member.life/thewoodlandslatindance/register">SIGN UP</a> and pay with a card online. We also accept cash or Zelle onsite.</p>
-        <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="disabled btn disabled-link-text">Coming Soon!</a>
-      </div>
-    </div>
-
-    <div class="card my-2 align-self-stretch flex-grow-1 mx-auto" style="width: 18rem;">
-      <div class="card-body">
-        <h2 class="card-title">Private Lessons - $80</h2>
-        <p class="card-text">
-          Want personalized guidance or one-on-one feedback? Contact us to set up a private, 1-hour lesson tailored to your needs.
-        </p>
+        <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></a>
+        <% } else { %>
         <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash, Zelle) or online.</p>
-        <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn btn-success">Contact The Woodlands Latin Dance</button>
+        <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>">Contact The Woodlands Latin Dance</button>
         <div id="contactModal" class="modal" tabindex="-1">
           <div class="modal-dialog" >
             <div class="modal-content text-white" style="background-color: #2b3035"">
@@ -113,9 +83,10 @@
             </div>
           </div>
         </div>
+        <% } %>
       </div>
     </div>
-
+    <% } %>
   </div>
 </div>
 

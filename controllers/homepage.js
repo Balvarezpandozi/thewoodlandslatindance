@@ -1,5 +1,6 @@
 const Announcements = require("../models/announcement");
 const DanceClasses = require("../models/danceClass");
+const Prices = require("../models/price");
 const ViewLocals = require("../utils/ViewLocals");
 const { dateToUTCString } = require("../utils/formatHelper");
 
@@ -10,6 +11,7 @@ module.exports.renderHomepage = async (req, res) => {
     showUntil: { $gte: new Date(dateToUTCString(currDate)) },
   });
   const danceClasses = await DanceClasses.find();
+  const prices = await Prices.find();
 
   const viewLocals = new ViewLocals({
     scheduleLink: "#schedule-section",
@@ -20,5 +22,9 @@ module.exports.renderHomepage = async (req, res) => {
     canonicalTag: "",
     announcement: announcement || undefined,
   });
-  res.render("main/index", { locals: viewLocals, danceClasses: danceClasses });
+  res.render("main/index", {
+    locals: viewLocals,
+    danceClasses: danceClasses,
+    prices: prices,
+  });
 };

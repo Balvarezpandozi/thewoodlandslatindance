@@ -54,4 +54,27 @@
   </div>
 
   <h2 class="mx-auto display-5">Prices</h2>
+  <a href="/adminportal/price/new">Create Price</a>
+  <div class="card-group">
+    <% for(let price of prices) { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= price.name %></h5>
+        <p class="card-text"><%= price.description %></p>
+        <p class="card-text">Prompt: <%= price.buttonPrompt %></p>
+        <p class="card-text">Price: $<%= price.price %></p>
+        <p class="card-text">Is disabled? <%= price.isDisbaled %></p>
+        <p class="card-text">
+          Requires contact booking? <%= price.contactBooking %>
+        </p>
+        <form
+          action="/adminportal/price/<%= price.id %>?_method=DELETE"
+          method="POST"
+        >
+          <button>Delete</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </div>

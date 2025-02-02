@@ -1,14 +1,17 @@
 const Announcements = require("../models/announcement");
 const DanceClass = require("../models/danceClass");
+const Price = require("../models/price");
 const { formatDanceClassDates } = require("../utils/formatHelper");
 const { validateDanceClassDates } = require("../utils/validationHelper");
 
 module.exports.renderDashboard = async (req, res) => {
   const announcements = await Announcements.find();
   const danceClasses = await DanceClass.find();
+  const prices = await Price.find();
   res.render("admin/dashboard", {
     announcements: announcements,
     danceClasses: danceClasses,
+    prices: prices,
   });
 };
 
@@ -65,5 +68,31 @@ module.exports.createClass = async (req, res) => {
 
 module.exports.deleteClass = async (req, res) => {
   await DanceClass.findByIdAndDelete(req.params.id);
+  res.redirect(`/adminportal`);
+};
+
+module.exports.renderNewPriceForm = (req, res) => {
+  res.render("admin/newPrice");
+};
+
+module.exports.createPrice = async (req, res) => {
+  const { name, description, price, isDisabled, buttonPrompt, contactBooking } =
+    req.body.price;
+
+  const newPrice = new Price({
+    name: name,
+    description: description,
+    price: price,
+    isDisabled: "yes" == isDisabled ? true : false,
+    buttonPrompt: buttonPrompt,
+    contactBooking: "yes" == contactBooking ? true : false,
+  });
+
+  await newPrice.save();
+  res.redirect(`/adminportal`);
+};
+
+module.exports.deletePrice = async (req, res) => {
+  await Price.findByIdAndDelete(req.params.id);
   res.redirect(`/adminportal`);
 };

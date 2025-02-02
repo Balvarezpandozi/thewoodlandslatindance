@@ -19,5 +19,12 @@ router
 router
   .route("/class/:id")
   .delete(isLoggedIn, catchAsync(adminController.deleteClass));
+router
+  .route("/price/new")
+  .get(isLoggedIn, adminController.renderNewPriceForm)
+  .post(isLoggedIn, catchAsync(adminController.createPrice));
+router
+  .route("/price/:id")
+  .delete(isLoggedIn, catchAsync(adminController.deletePrice));
 
 module.exports = router;
