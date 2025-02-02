@@ -4,10 +4,10 @@ name: The Woodlands Latin Dance Tests
 on:
   # Triggers the workflow on push or pull request events but only for the "main" branch
   push:
-    branches: 
+    branches:
       - "main"
   pull_request:
-    branches: 
+    branches:
       - "main"
 
 # A workflow run is made up of one or more jobs that can run sequentially or in parallel
@@ -18,10 +18,10 @@ jobs:
       matrix:
         node-version: [18.16.0]
         mongodb-version: [6.0]
-    
+
     steps:
       - uses: actions/checkout@v3
-      
+
       - name: Set up Node Js
         uses: actions/setup-node@v3
         with:
@@ -33,12 +33,13 @@ jobs:
           mongodb-version: ${{ matrix.mongodb-version }}
           mongodb-replica-set: test-rs
           mongodb-port: 27017
-      
+
       - name: Install dependancies
         run: |
           npm install
-          
+
       - name: Test App Code
         env:
           DATABASE_URL: ${{ secrets.DATABASE_URL }}
+          SESSION_SECRET: ${{ secrets.SESSION_SECRET }}
         run: npm test
