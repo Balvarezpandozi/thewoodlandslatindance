@@ -1,0 +1,95 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">New Class</h1>
+    <a href="/adminportal">Dashboard</a>
+    <form
+      action="/adminportal/class/new"
+      method="POST"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="danceClass[title]"
+          placeholder="The best class title example"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the title...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="danceClass[description]"
+          placeholder="Describe the class here"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter description...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="day">Week Day</label>
+        <input
+          type="text"
+          class="form-control"
+          id="day"
+          name="danceClass[day]"
+          placeholder="Write the week day here"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter a week day here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="danceClass[location]"
+          placeholder="Adress here!"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the address here here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="time">Time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="time"
+          name="danceClass[time]"
+          placeholder="7 PM for example"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the time here here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="dates">Dates</label>
+        <input
+          type="text"
+          class="form-control"
+          id="dates"
+          name="danceClass[dates]"
+          placeholder="February:8th,15th,22nd;March:1st;"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the dates here here...</div>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/danceClassForm.js"></script>

@@ -12,5 +12,12 @@ router
 router
   .route("/announcement/:id")
   .delete(isLoggedIn, catchAsync(adminController.deleteAnnouncement));
+router
+  .route("/class/new")
+  .get(isLoggedIn, adminController.renderNewClassForm)
+  .post(isLoggedIn, catchAsync(adminController.createClass));
+router
+  .route("/class/:id")
+  .delete(isLoggedIn, catchAsync(adminController.deleteClass));
 
 module.exports = router;

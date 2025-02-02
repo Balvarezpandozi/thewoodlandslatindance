@@ -22,3 +22,20 @@ function formatNumber(number) {
 }
 
 module.exports.formatNumber = formatNumber;
+
+function formatDanceClassDates(input) {
+  return input
+    .split(";")
+    .map((entry) => {
+      if (!entry) return;
+      const [month, dates] = entry.split(":");
+      const formattedDates = dates
+        .split(",")
+        .map((date) => date.trim())
+        .join(", ");
+      return { month: month.trim(), dates: formattedDates };
+    })
+    .filter(Boolean);
+}
+
+module.exports.formatDanceClassDates = formatDanceClassDates;

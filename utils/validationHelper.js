@@ -33,3 +33,10 @@ function validateLink(url) {
 }
 
 module.exports.validateLink = validateLink;
+
+function validateDanceClassDates(dates) {
+  const regex = /^([A-Za-z]+:\d{1,2}(st|nd|rd|th)(,\d{1,2}(st|nd|rd|th))*;)+/;
+  return regex.test(dates);
+}
+
+module.exports.validateDanceClassDates = validateDanceClassDates;

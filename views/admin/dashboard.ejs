@@ -29,6 +29,29 @@
     </div>
     <% } %>
   </div>
+
   <h2 class="mx-auto display-5">Classes</h2>
+  <a href="/adminportal/class/new">Create Class</a>
+  <div class="card-group">
+    <% for(let danceClass of danceClasses) { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title"><%= danceClass.title %></h5>
+        <p class="card-text"><%= danceClass.description %></p>
+        <p>📅DAYS: <%= danceClass.day %></p>
+        <p>DATES: <%= danceClass.dates %></p>
+        <p>⏰TIME: <%= danceClass.time %></p>
+        <p>📍LOCATION: <%= danceClass.location %></p>
+        <form
+          action="/adminportal/class/<%= danceClass.id %>?_method=DELETE"
+          method="POST"
+        >
+          <button>Delete</button>
+        </form>
+      </div>
+    </div>
+    <% } %>
+  </div>
+
   <h2 class="mx-auto display-5">Prices</h2>
 </div>

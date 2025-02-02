@@ -23,53 +23,27 @@
         </p>
     </div>
 
+    <% for(let danceClass of danceClasses) { %>
     <div class="d-flex flex-column flex-md-row justify-content-around container-900px mx-auto">
       <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
         <div class="card-body">
-          <h3 class="card-title">SALSA ALL LEVELS</h3>
+          <h3 class="card-title"><%= danceClass.title %></h3>
           <p class="card-text">
-            This Salsa class is a combination of footwork and partnerwork for all levels. We participate as guest instructors in this class teaching the higher level class. <strong>This class is managed by R&I Dance Studio.</strong>
+            <%= danceClass.description %>
           </p>
-          <p>📅 DAYS: <strong>Thursday</strong></p>
-          <p><strong>January: </strong> 9th, 16th, 23rd, 30th</p>
-          <p>⏰ TIME: <strong>7 PM</strong></p>
-          <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a target="_blank" href="https://www.facebook.com/share/15cmssSXBg/" class="btn btn-success">Check out details</a>
-        </div>
-      </div>
-    </div>
-    
+          <p>📅 DAYS: <strong><%= danceClass.day %></strong></p>
+          
+          <% for(let dateObj of danceClass.dates) { %>
+            <p><strong><%= dateObj.month %>: </strong> <%= dateObj.dates %></p>
+          <% } %>
 
-    <div class="d-flex flex-column flex-md-row justify-content-around container-900px mx-auto">
-      <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
-        <div class="card-body">
-          <h3 class="card-title">BACHATA LEVEL 1</h3>
-          <p class="card-text">
-            This beginner bachata class will guide you step-by-step through the basics, focusing on fundamental footwork, rhythm, 
-            and connection. Come as you are—no partner or experience needed!
-          </p>
-          <p>📅 DAYS: <strong>Thursday</strong></p>
-          <p><strong>January: </strong> 9th, 16th, 23rd, 30th</p>
-          <p>⏰ TIME: <strong>8 PM</strong></p>
-          <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out our calendar!</a>
-        </div>
-      </div>
-      <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
-        <div class="card-body">
-          <h3 class="card-title">BACHATA LEVEL 2</h3>
-          <p class="card-text">
-            This class builds on the fundamentals covered in Bachata Level 1, introducing more complex patterns 
-            and techniques. A basic understanding of Bachata is expected. No partner needed!
-          </p>
-          <p>📅 DAY: <strong>Thursday</strong></p>
-          <p><strong>February: </strong> 6th, 13th, 20th, 27th</p>
-          <p>⏰ TIME: <strong>8 PM</strong></p>
-          <p>📌 LOCATION: <strong>25323 I-45, Spring, TX 77380</strong></p>
-          <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out our calendar!</a>
+          <p>⏰ TIME: <strong><%= danceClass.time %></strong></p>
+          <p>📌 LOCATION: <strong><%= danceClass.location %></strong></p>
+          <a target="_blank" href="https://member.life/thewoodlandslatindance/calendar" class="btn btn-success">Check out details</a>
         </div>
       </div>
     </div>
+    <% } %>
 </div>
 
 <div class="px-4 py-5 my-0 pricing-container" id="pricing-section">
