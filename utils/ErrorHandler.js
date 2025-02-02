@@ -19,6 +19,7 @@ function catchAsync(fn) {
 module.exports.catchAsync = catchAsync;
 
 function errorHandler(err, req, res, next) {
+  if (process.env.NODE_ENV !== "production") console.log(err);
   const { status = 500, message = "Something went wrong" } = err;
   res.status(status);
   const viewLocals = new ViewLocals();
