@@ -17,6 +17,12 @@ describe("Test format helper utility", () => {
       const formatDate = dateToUTCString(testDate);
       expect(formatDate).toBe("2025-02-05T00:00:00.000Z");
     });
+
+    it("should return a valid date in UTC format", () => {
+      const testDate = new Date("2025-02-09T02:38:43.231Z");
+      const formatDate = dateToUTCString(testDate);
+      expect(formatDate).toBe("2025-02-09T00:00:00.000Z");
+    });
   });
 
   describe("Test number formatter", () => {

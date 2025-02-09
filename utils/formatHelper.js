@@ -4,8 +4,8 @@ function dateToUTCString(date) {
 
   const day = date.getUTCDate();
 
-  return `${year}-${month < 9 ? `0${month}` : `${month}`}-${
-    day < 9 ? `0${day}` : `${day}`
+  return `${year}-${month <= 9 ? `0${month}` : `${month}`}-${
+    day <= 9 ? `0${day}` : `${day}`
   }T00:00:00.000Z`;
 }
 

@@ -6,10 +6,12 @@ const { dateToUTCString } = require("../utils/formatHelper");
 
 module.exports.renderHomepage = async (req, res) => {
   const currDate = new Date();
+
   const announcement = await Announcements.findOne({
     showFrom: { $lte: new Date(dateToUTCString(currDate)) },
     showUntil: { $gte: new Date(dateToUTCString(currDate)) },
   });
+
   const danceClasses = await DanceClasses.find();
   const prices = await Prices.find();
 

@@ -1,9 +1,8 @@
-const express = require('express');
+const express = require("express");
 const router = express.Router();
-const homepageController = require('../controllers/homepage');
-const { catchAsync } = require('../utils/ErrorHandler');
+const homepageController = require("../controllers/homepage");
+const { catchAsync } = require("../utils/ErrorHandler");
 
-router.route('/')
-    .get(homepageController.renderHomepage);
+router.route("/").get(catchAsync(homepageController.renderHomepage));
 
 module.exports = router;
