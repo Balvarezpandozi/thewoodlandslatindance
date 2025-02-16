@@ -1,6 +1,7 @@
 const adminController = require("../admin");
 const Announcements = require("../../models/announcement");
 const DanceClasses = require("../../models/danceClass");
+const Redirections = require("../../models/redirection");
 const Prices = require("../../models/price");
 const mongoose = require("mongoose");
 const { MongoMemoryServer } = require("mongodb-memory-server");
@@ -15,7 +16,10 @@ describe("Test admin controller", () => {
     danceClassesMock.mockImplementation(() => {
       return {};
     });
-
+    const redirectionsMock = jest.spyOn(Redirections, "find");
+    redirectionsMock.mockImplementation(() => {
+      return { populate: jest.fn() };
+    });
     const pricesMock = jest.spyOn(Prices, "find");
     pricesMock.mockImplementation(() => {
       return {};

@@ -1,16 +1,19 @@
 const Announcements = require("../models/announcement");
 const DanceClass = require("../models/danceClass");
 const Price = require("../models/price");
+const Redirection = require("../models/redirection");
 const { formatDanceClassDates } = require("../utils/formatHelper");
 const { validateDanceClassDates } = require("../utils/validationHelper");
 
 module.exports.renderDashboard = async (req, res) => {
   const announcements = await Announcements.find();
   const danceClasses = await DanceClass.find();
+  const redirections = await Redirection.find().populate("leads");
   const prices = await Price.find();
   res.render("admin/dashboard", {
     announcements: announcements,
     danceClasses: danceClasses,
+    redirections: redirections,
     prices: prices,
   });
 };

@@ -77,4 +77,29 @@
     </div>
     <% } %>
   </div>
+
+  <h2 class="mx-auto display-5">Redirections</h2>
+  <div class="card-group">
+    <% for(let redirection of redirections) { %>
+    <div class="card" style="width: 18rem">
+      <div class="card-body">
+        <h5 class="card-title">ID: <%= redirection.redirectionID %></h5>
+        <p class="card-text">
+          Description: <%= redirection.locationDescription %>
+        </p>
+        <p class="card-text">
+          URL Redirection: <%= redirection.urlRedirection %>
+        </p>
+        <div>
+          <p class="card-text">Leads:</p>
+          <ul>
+            <% for(let lead of redirection.leads) { %>
+            <li><%= lead.timestamp %></li>
+            <% } %>
+          </ul>
+        </div>
+      </div>
+    </div>
+    <% } %>
+  </div>
 </div>
