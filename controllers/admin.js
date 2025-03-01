@@ -88,6 +88,7 @@ module.exports.createPrice = async (req, res) => {
     buttonPrompt,
     contactBooking,
     order,
+    url,
   } = req.body.price;
 
   const newPrice = new Price({
@@ -98,6 +99,7 @@ module.exports.createPrice = async (req, res) => {
     buttonPrompt: buttonPrompt,
     contactBooking: "yes" == contactBooking ? true : false,
     order: order,
+    url: url,
   });
 
   await newPrice.save();

@@ -26,7 +26,7 @@
 
     <div class="d-flex flex-wrap flex-column flex-md-row justify-content-around container-900px mx-auto">
     <% for(let danceClass of danceClasses) { %>
-      <div class="card my-2 align-self-stretch mx-auto" style="width: 18rem;">
+      <div class="card my-2 align-self-stretch flex-grow-1 mx-md-1 mx-auto" style="width: 18rem;">
         <div class="card-body">
           <h3 class="card-title"><%= danceClass.title %></h3>
           <p class="card-text">
@@ -53,7 +53,7 @@
   </div>
   <div class="d-flex flex-wrap flex-column flex-md-row justify-content-around container-900px mx-auto">
     <% for(let price of prices) { %>
-    <div class="card my-2 align-self-stretch flex-grow-1 mx-1" style="width: 18rem;">
+    <div class="card my-2 align-self-stretch flex-grow-1 mx-md-1 mx-auto" style="width: 18rem;">
       <div class="card-body">
         <h2 class="card-title"><%= price.name %> - $<%= price.price %></h2>
         <p class="card-text">
@@ -61,7 +61,7 @@
         </p>
         <% if(!price.contactBooking) { %> 
         <p><strong>💵Payment methods:</strong> <a class="link" target="_blank" href="https://member.life/thewoodlandslatindance/register">SIGN UP</a> and pay with a card online. We also accept cash or Zelle onsite.</p>
-        <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></a>
+        <a target="_blank" href="<%=price.url%>" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></a>
         <% } else { %>
         <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash, Zelle) or online.</p>
         <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>">Contact The Woodlands Latin Dance</button>

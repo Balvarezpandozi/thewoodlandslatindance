@@ -21,6 +21,7 @@ const PriceSchema = new Schema({
       message: "This number is not an integer",
     },
   },
+  url: { type: String, required: true },
 });
 
 module.exports = mongoose.model("Price", PriceSchema);

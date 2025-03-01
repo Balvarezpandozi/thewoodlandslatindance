@@ -287,6 +287,7 @@ describe("Test admin controller", () => {
         buttonPrompt: "button prompt",
         price: 20,
         order: 1,
+        url: "https://member.life/thewoodlandslatindance/offer/5218",
       };
 
       const response = { redirect: jest.fn() };
@@ -319,6 +320,7 @@ describe("Test admin controller", () => {
         isDisabled: "yes",
         contactBooking: "yes",
         order: 1,
+        url: "https://member.life/thewoodlandslatindance/offer/5218",
       };
 
       const response = { redirect: jest.fn() };
@@ -352,6 +354,7 @@ describe("Test admin controller", () => {
         isDisabled: false,
         contactBooking: false,
         order: 1,
+        url: "https://member.life/thewoodlandslatindance/offer/5218",
       });
 
       await price.save();
