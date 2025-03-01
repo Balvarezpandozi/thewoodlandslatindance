@@ -12,6 +12,15 @@ const PriceSchema = new Schema({
   isDisabled: { type: Boolean, default: false },
   buttonPrompt: { type: String, required: true },
   contactBooking: { type: Boolean, default: false },
+  order: {
+    type: Number,
+    required: true,
+    unique: true,
+    validate: {
+      validator: Number.isInteger,
+      message: "This number is not an integer",
+    },
+  },
 });
 
 module.exports = mongoose.model("Price", PriceSchema);

@@ -179,6 +179,7 @@ describe("Test admin controller", () => {
         time: "8 PM",
         location: "address",
         dates: "February:8th,15th,22nd;March:1st;",
+        order: 1,
       };
 
       const response = { redirect: jest.fn() };
@@ -224,7 +225,7 @@ describe("Test admin controller", () => {
       await mongoServer.stop();
     });
 
-    it("should delete an announcement", async () => {
+    it("should delete a class", async () => {
       await mongoose.disconnect();
       mongoServer = await MongoMemoryServer.create();
       const mongoUri = mongoServer.getUri();
@@ -240,6 +241,7 @@ describe("Test admin controller", () => {
           { month: "February", dates: "8th,15th,22nd" },
           { month: "March", dates: "1st" },
         ],
+        order: 1,
       });
 
       await danceClass.save();
@@ -284,6 +286,7 @@ describe("Test admin controller", () => {
         description: "A new price",
         buttonPrompt: "button prompt",
         price: 20,
+        order: 1,
       };
 
       const response = { redirect: jest.fn() };
@@ -315,6 +318,7 @@ describe("Test admin controller", () => {
         price: 20,
         isDisabled: "yes",
         contactBooking: "yes",
+        order: 1,
       };
 
       const response = { redirect: jest.fn() };
@@ -347,6 +351,7 @@ describe("Test admin controller", () => {
         price: 20,
         isDisabled: false,
         contactBooking: false,
+        order: 1,
       });
 
       await price.save();

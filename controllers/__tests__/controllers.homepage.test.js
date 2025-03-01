@@ -12,10 +12,10 @@ describe("Test homepage controller", () => {
       return {};
     });
     danceClassesMock.mockImplementation(() => {
-      return {};
+      return { sort: jest.fn() };
     });
     pricesMock.mockImplementation(() => {
-      return {};
+      return { sort: jest.fn() };
     });
 
     const req = {};

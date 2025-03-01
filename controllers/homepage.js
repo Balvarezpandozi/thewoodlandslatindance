@@ -12,8 +12,8 @@ module.exports.renderHomepage = async (req, res) => {
     showUntil: { $gte: new Date(dateToUTCString(currDate)) },
   });
 
-  const danceClasses = await DanceClasses.find();
-  const prices = await Prices.find();
+  const danceClasses = await DanceClasses.find().sort({ order: 1 });
+  const prices = await Prices.find().sort({ order: 1 });
 
   const viewLocals = new ViewLocals({
     scheduleLink: "#schedule-section",

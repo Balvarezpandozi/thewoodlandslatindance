@@ -49,7 +49,7 @@ module.exports.renderNewClassForm = (req, res) => {
 };
 
 module.exports.createClass = async (req, res) => {
-  const { title, description, day, location, time, dates } =
+  const { title, description, day, location, time, dates, order } =
     req.body.danceClass;
 
   if (!validateDanceClassDates(dates)) {
@@ -63,6 +63,7 @@ module.exports.createClass = async (req, res) => {
     location: location,
     time: time,
     dates: formatDanceClassDates(dates),
+    order: order,
   });
 
   await newDanceClass.save();
@@ -79,8 +80,15 @@ module.exports.renderNewPriceForm = (req, res) => {
 };
 
 module.exports.createPrice = async (req, res) => {
-  const { name, description, price, isDisabled, buttonPrompt, contactBooking } =
-    req.body.price;
+  const {
+    name,
+    description,
+    price,
+    isDisabled,
+    buttonPrompt,
+    contactBooking,
+    order,
+  } = req.body.price;
 
   const newPrice = new Price({
     name: name,
@@ -89,6 +97,7 @@ module.exports.createPrice = async (req, res) => {
     isDisabled: "yes" == isDisabled ? true : false,
     buttonPrompt: buttonPrompt,
     contactBooking: "yes" == contactBooking ? true : false,
+    order: order,
   });
 
   await newPrice.save();

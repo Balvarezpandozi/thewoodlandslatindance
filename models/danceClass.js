@@ -13,6 +13,15 @@ const DanceClassSchema = new Schema({
   ],
   time: { type: String, required: true },
   location: { type: String, required: true },
+  order: {
+    type: Number,
+    required: true,
+    unique: true,
+    validate: {
+      validator: Number.isInteger,
+      message: "This number is not an integer",
+    },
+  },
 });
 
 module.exports = mongoose.model("DanceClass", DanceClassSchema);
