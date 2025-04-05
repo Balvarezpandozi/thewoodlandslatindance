@@ -6,14 +6,14 @@ const { dateToUTCString } = require("../utils/formatHelper");
 
 module.exports.renderHomepage = async (req, res) => {
   const currDate = new Date();
-
-  const announcement = await Announcements.findOne({
-    showFrom: { $lte: new Date(dateToUTCString(currDate)) },
-    showUntil: { $gte: new Date(dateToUTCString(currDate)) },
-  });
-
-  const danceClasses = await DanceClasses.find().sort({ order: 1 });
-  const prices = await Prices.find().sort({ order: 1 });
+  const [announcement, danceClasses, prices] = await Promise.all([
+    Announcements.findOne({
+      showFrom: { $lte: new Date(dateToUTCString(currDate)) },
+      showUntil: { $gte: new Date(dateToUTCString(currDate)) },
+    }),
+    DanceClasses.find().sort({ order: 1 }),
+    Prices.find().sort({ order: 1 }),
+  ]);
 
   const viewLocals = new ViewLocals({
     scheduleLink: "#schedule-section",
