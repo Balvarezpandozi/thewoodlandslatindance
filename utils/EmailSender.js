@@ -7,7 +7,7 @@ class EmailSender {
     const filledTemplate = this.processEmailTemplate(options);
 
     return await this.transport.sendMail({
-      from: "'The Woodlands Latin Dance' <thewoodlandslatindance@gmail.com>", // sender address
+      from: "The Woodlands Latin Dance' <thewoodlandslatindance@gmail.com>", // sender address
       to: recipient, // list of receivers
       subject: filledTemplate.subject, // Subject line
       text: filledTemplate.text,
@@ -19,6 +19,8 @@ class EmailSender {
     switch (options.templateName) {
       case "Welcome":
         return this.welcomeTemplate(options);
+      case "EventLead":
+        return this.eventLeadTemplate(options);
       case "Generic":
         return this.genericTemplate(options);
       default:
@@ -41,6 +43,58 @@ class EmailSender {
                 <p>Turn🕺🏻, Spin💃🏻, Shine🪩 – Your Salsa Journey Starts Here!"</p>
                 <p style="font-weight: bold;font-size: 1.5rem;">~ The Woodlands Latin Dance<br><a style="font-size: 1rem;color: #198754;" href="tel:+18327913321">+1 (832) 791-3321</a></p>
                 </section>`,
+    };
+  }
+
+  eventLeadTemplate(options) {
+    return {
+      subject: `New Event Lead - ${options.event.fullName}`,
+      text: `You have a new event lead!\n
+        Event Type: ${options.event.type}
+        Date: ${options.event.eventDate.toLocaleDateString()}
+        Guest Count: ${options.event.guestCount}
+        Name: ${options.event.fullName}
+        Phone: ${options.event.phone}
+        Email: ${options.event.email}
+        `,
+      html: `
+      <h1 style="font-size: 1.5rem; background-color: #dc3545; color: white; padding: 0.5rem; border-radius: 8px; text-align: center; margin: 0;">
+        New Event Lead
+      </h1>
+      <section style="border: 1px solid #ccc; border-radius: 8px; margin-top: 0.5rem; padding: 1rem; font-family: Arial, sans-serif;">
+        <p style="font-size: 1rem; margin: 0 0 1rem;">You have a new event lead. Details below:</p>
+        
+        <table style="width: 100%; border-collapse: collapse;">
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Event Type</td>
+            <td style="padding: 0.5rem;">${options.event.type}</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Date</td>
+            <td style="padding: 0.5rem;">${options.event.eventDate.toLocaleDateString()}</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Guest Count</td>
+            <td style="padding: 0.5rem;">${options.event.guestCount}</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Name</td>
+            <td style="padding: 0.5rem;">${options.event.fullName}</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Phone</td>
+            <td style="padding: 0.5rem;"><a href="tel:${
+              options.event.phone
+            }" style="color: #198754;">${options.event.phone}</a></td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Email</td>
+            <td style="padding: 0.5rem;"><a href="mailto:${
+              options.event.email
+            }" style="color: #198754;">${options.event.email}</a></td>
+          </tr>
+        </table>
+      </section>`,
     };
   }
 

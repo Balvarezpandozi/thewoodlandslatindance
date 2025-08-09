@@ -1,0 +1,26 @@
+.hero-graphic {
+  background-image: url("../res/images/blogHeroGraphic.jpg");
+  background-size: cover;
+  transition: all ease-in-out 2s;
+}
+
+.transparent-container {
+  background-color: rgba(0, 0, 0, 0.75);
+}
+
+.white-text {
+  color: white;
+}
+
+.brand-green-text {
+  color: #198754 !important;
+}
+
+#formMessage {
+  transition: all 0.3s ease;
+  font-size: 1.1rem;
+  padding: 1rem;
+  box-sizing: border-box;
+  width: 100%;
+  margin-bottom: 1.5rem;
+}
