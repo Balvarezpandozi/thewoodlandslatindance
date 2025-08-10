@@ -23,7 +23,7 @@ module.exports.renderHomepage = async (req, res) => {
     styleFiles: ["mainpage.css"],
     pageTitle: "The Woodlands Latin Dance - Salsa & Bachata Classes",
     canonicalTag: "",
-    announcement: announcement || undefined,
+    announcement: announcement,
     linkedDataJson: ldjson.homePageLDJSON(danceClasses),
   });
   res.render("main/index", {

@@ -3,6 +3,18 @@ document.addEventListener("DOMContentLoaded", () => {
   const steps = form.querySelectorAll(".form-step");
   let currentStep = 0;
 
+  form.querySelectorAll("input, select").forEach((input) => {
+    input.addEventListener("input", () => {
+      if (input.checkValidity()) {
+        input.classList.remove("is-invalid");
+        input.classList.add("is-valid");
+      } else {
+        input.classList.remove("is-valid");
+        input.classList.add("is-invalid");
+      }
+    });
+  });
+
   function showStep(step) {
     steps.forEach((stepDiv, index) => {
       stepDiv.classList.toggle("d-none", index !== step);
@@ -16,8 +28,12 @@ document.addEventListener("DOMContentLoaded", () => {
       const inputs = steps[currentStep].querySelectorAll("select, input");
       for (let input of inputs) {
         if (!input.checkValidity()) {
-          input.reportValidity();
+          input.classList.add("is-invalid");
+          input.classList.remove("is-valid");
           return;
+        } else {
+          input.classList.remove("is-invalid");
+          input.classList.add("is-valid");
         }
       }
       currentStep++;
@@ -34,6 +50,18 @@ document.addEventListener("DOMContentLoaded", () => {
   form.addEventListener("submit", async (e) => {
     e.preventDefault(); // Prevent default form submission
 
+    // Validate inputs on current step
+    const inputs = steps[currentStep].querySelectorAll("select, input");
+    for (let input of inputs) {
+      if (!input.checkValidity()) {
+        input.classList.add("is-invalid");
+        input.classList.remove("is-valid");
+        return;
+      } else {
+        input.classList.remove("is-invalid");
+        input.classList.add("is-valid");
+      }
+    }
     // Build event data object
     const formData = new FormData(form);
     const eventData = {
@@ -77,7 +105,7 @@ document.addEventListener("DOMContentLoaded", () => {
     } catch (error) {
       // Show network error message
       document.querySelector("#formMessage").textContent =
-        "Network error. Please try again later or contact us at +1 (281) 202-2058";
+        "Something went wrong. Please try again later or contact us at +1 (281) 202-2058";
       document.querySelector("#formMessage").classList.remove("d-none");
       document.querySelector("#formMessage").classList.remove("alert-success");
       document.querySelector("#formMessage").classList.add("alert-danger");

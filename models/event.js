@@ -1,5 +1,9 @@
 const mongoose = require("mongoose");
 const Schema = mongoose.Schema;
+const {
+  validateUSPhoneNumber,
+  validateEmail,
+} = require("../utils/validationHelper");
 
 const EventSchema = new Schema({
   timestamp: {
@@ -38,10 +42,7 @@ const EventSchema = new Schema({
     type: String,
     required: true,
     validate: {
-      validator: function (v) {
-        // Basic validation: allows digits, spaces, dashes, parentheses, and leading +
-        return /^\+?[0-9\s\-()]{7,20}$/.test(v);
-      },
+      validator: validateUSPhoneNumber,
       message: (props) => `${props.value} is not a valid phone number`,
     },
   },
@@ -51,9 +52,7 @@ const EventSchema = new Schema({
     lowercase: true, // stores as lowercase
     trim: true,
     validate: {
-      validator: function (v) {
-        return /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v);
-      },
+      validator: validateEmail,
       message: (props) => `${props.value} is not a valid email`,
     },
   },

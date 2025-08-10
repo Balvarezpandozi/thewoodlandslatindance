@@ -21,10 +21,8 @@ class EmailSender {
         return this.welcomeTemplate(options);
       case "EventLead":
         return this.eventLeadTemplate(options);
-      case "Generic":
-        return this.genericTemplate(options);
       default:
-        return this.welcomeTemplate(options);
+        return;
     }
   }
 

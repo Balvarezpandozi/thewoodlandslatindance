@@ -52,9 +52,10 @@
       id="multiStepForm"
       action="/salsa-bachata-event-class"
       method="POST"
-      class="mx-auto"
+      class="mx-auto needs-validation"
       style="max-width: 600px"
       aria-label="Request a quote for salsa and bachata event classes"
+      novalidate
     >
       <!-- Step 1 -->
       <div class="form-step">
@@ -62,13 +63,14 @@
           >What type of event are you hosting?</label
         >
         <select id="eventType" class="form-select" name="type" required>
-          <option value="">Select...</option>
+          <option selected disabled value="">Select...</option>
           <option>Corporate Event</option>
           <option>Private Party</option>
           <option>Wedding</option>
           <option>Networking Mixer</option>
           <option>Other</option>
         </select>
+        <div class="invalid-feedback">Please, select event type.</div>
         <button type="button" class="btn btn-success mt-3 next-btn">
           Next
         </button>
@@ -84,6 +86,7 @@
           name="date"
           required
         />
+        <div class="invalid-feedback">Tell us a date estimation.</div>
         <button type="button" class="btn btn-secondary mt-3 prev-btn">
           Previous
         </button>
@@ -98,12 +101,15 @@
           >Approximately how many guests will be there?</label
         >
         <select id="guestCount" class="form-select" name="guestCount" required>
-          <option value="">Select...</option>
+          <option selected disabled value="">Select...</option>
           <option>1–10</option>
           <option>11–20</option>
           <option>21–40</option>
           <option>41+</option>
         </select>
+        <div class="invalid-feedback">
+          Enter how many guests you are expecting.
+        </div>
         <button type="button" class="btn btn-secondary mt-3 prev-btn">
           Previous
         </button>
@@ -118,13 +124,14 @@
           >Do you also need a venue and/or DJ?</label
         >
         <select id="extras" class="form-select" name="extra" required>
-          <option value="">Select...</option>
+          <option selected disabled value="">Select...</option>
           <option>Only need a venue</option>
           <option>Only need a DJ</option>
           <option>Need both venue and DJ</option>
           <option>Don’t need either</option>
           <option>Not sure yet</option>
         </select>
+        <div class="invalid-feedback">Select one option above.</div>
         <button type="button" class="btn btn-secondary mt-3 prev-btn">
           Previous
         </button>
@@ -136,27 +143,46 @@
       <!-- Step 5 -->
       <div class="form-step d-none">
         <label class="form-label fw-bold">Contact Information</label>
-        <input
-          type="text"
-          class="form-control mb-3"
-          name="fullName"
-          placeholder="Full Name"
-          required
-        />
-        <input
-          type="email"
-          class="form-control mb-3"
-          name="email"
-          placeholder="Email Address"
-          required
-        />
-        <input
-          type="tel"
-          inputmode="tel"
-          class="form-control mb-3"
-          name="phone"
-          placeholder="Phone Number"
-        />
+        <div class="mb-3">
+          <label for="fullName" class="form-label">Full Name</label>
+          <input
+            type="text"
+            id="fullName"
+            class="form-control"
+            name="fullName"
+            placeholder="Full Name"
+            required
+          />
+          <div class="invalid-feedback">Enter your full name.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="email" class="form-label">Email Address</label>
+          <input
+            type="email"
+            id="email"
+            class="form-control"
+            name="email"
+            placeholder="Email Address"
+            required
+          />
+          <div class="invalid-feedback">Enter a valid email.</div>
+        </div>
+
+        <div class="mb-3">
+          <label for="phone" class="form-label">Phone Number</label>
+          <input
+            type="tel"
+            id="phone"
+            inputmode="tel"
+            class="form-control"
+            name="phone"
+            placeholder="+1(281)202-2058"
+            pattern="^\+?[0-9\s\-().]{7,20}$"
+            required
+          />
+          <div class="invalid-feedback">Enter a valid phone number.</div>
+        </div>
         <button type="button" class="btn btn-secondary mt-3 prev-btn">
           Previous
         </button>
