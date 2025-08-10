@@ -1,12 +1,14 @@
 const ViewLocals = require("../utils/ViewLocals");
 const Event = require("../models/event");
 const EmailSender = require("../utils/EmailSender");
+const ldjson = require("../utils/linkedDataJSON");
 
 module.exports.renderEventsFunnel = (req, res) => {
   const viewLocals = new ViewLocals({
     styleFiles: ["events.css"],
     canonicalTag: "salsaBachataEvents",
     pageTitle: "Hire Salsa Instructor for Events | The Woodlands Latin Dance",
+    linkedDataJson: ldjson.eventsPageLDJSON,
   });
   res.render("events/index", {
     locals: viewLocals,

@@ -22,6 +22,10 @@ const DanceClassSchema = new Schema({
       message: "This number is not an integer",
     },
   },
+  addressRegion: { type: String },
+  addressLocality: { type: String },
+  streetAddress: { type: String },
+  postalCode: { type: String },
 });
 
 module.exports = mongoose.model("DanceClass", DanceClassSchema);

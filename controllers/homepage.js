@@ -3,6 +3,7 @@ const DanceClasses = require("../models/danceClass");
 const Prices = require("../models/price");
 const ViewLocals = require("../utils/ViewLocals");
 const { dateToUTCString } = require("../utils/formatHelper");
+const ldjson = require("../utils/linkedDataJSON");
 
 module.exports.renderHomepage = async (req, res) => {
   const currDate = new Date();
@@ -23,6 +24,7 @@ module.exports.renderHomepage = async (req, res) => {
     pageTitle: "The Woodlands Latin Dance - Salsa & Bachata Classes",
     canonicalTag: "",
     announcement: announcement || undefined,
+    linkedDataJson: ldjson.homePageLDJSON(danceClasses),
   });
   res.render("main/index", {
     locals: viewLocals,

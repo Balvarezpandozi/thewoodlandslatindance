@@ -17,6 +17,7 @@ class ViewLocals {
     this.phoneNumber = process.env.PHONE_NUMBER || "+12812022058";
     this.formattedPhoneNumber = formatNumber(this.phoneNumber);
     this.announcement = options.announcement || undefined;
+    this.linkedDataJson = options.linkedDataJson || undefined;
   }
 }
 
