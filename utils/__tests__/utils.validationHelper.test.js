@@ -8,7 +8,7 @@ const {
 describe("Test validation helper", () => {
   describe("test phone number validator", () => {
     it("should return false because phone number is too long", () => {
-      const phoneNumber = "12345678901";
+      const phoneNumber = "123456789012";
       expect(validateUSPhoneNumber(phoneNumber)).toBe(false);
     });
 
@@ -38,6 +38,11 @@ describe("Test validation helper", () => {
 
     it("should return true given valid phone number", () => {
       const testNumber1 = "3198537744";
+      expect(validateUSPhoneNumber(testNumber1)).toBe(true);
+    });
+
+    it("should return true given valid phone number", () => {
+      const testNumber1 = "13198533372";
       expect(validateUSPhoneNumber(testNumber1)).toBe(true);
     });
   });

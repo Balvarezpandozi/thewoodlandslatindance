@@ -28,8 +28,8 @@ app.set("view engine", "ejs");
 app.set("views", path.join(__dirname, "views"));
 app.use(
   express.static(path.join(__dirname, "./public"), {
-    //maxAge: "10d", // Cache for 30 days (in milliseconds or a string accepted by the ms module)
-    //immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
+    maxAge: "20d", // Cache for 30 days (in milliseconds or a string accepted by the ms module)
+    immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
   })
 );
 app.use(

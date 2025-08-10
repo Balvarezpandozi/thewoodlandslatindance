@@ -1,16 +1,29 @@
 function validateUSPhoneNumber(phoneNumber) {
-  if (typeof phoneNumber != "string") return false;
-  if (!/^\d{10}$/.test(phoneNumber)) return false;
+  if (typeof phoneNumber !== "string") return false;
 
-  const areaCode = phoneNumber.slice(0, 3);
-  const exchangeCode = phoneNumber.slice(3, 6);
+  // Remove spaces, parentheses, dashes, dots
+  let digits = phoneNumber.replace(/[^\d]/g, "");
 
-  //US rules for invalid area code
-  if (areaCode[0] == "0" || areaCode[0] == "1" || areaCode[1] == "9")
+  // Allow optional leading "1" for country code
+  if (digits.length === 11 && digits[0] === "1") {
+    digits = digits.slice(1);
+  }
+
+  // Must now be exactly 10 digits
+  if (!/^\d{10}$/.test(digits)) return false;
+
+  const areaCode = digits.slice(0, 3);
+  const exchangeCode = digits.slice(3, 6);
+
+  // NANP rules for invalid area code
+  if (areaCode[0] === "0" || areaCode[0] === "1" || areaCode[1] === "9") {
     return false;
+  }
 
-  //US rules for invalid exchange code
-  if (exchangeCode[0] == "0" || exchangeCode[0] == "1") return false;
+  // NANP rules for invalid exchange code
+  if (exchangeCode[0] === "0" || exchangeCode[0] === "1") {
+    return false;
+  }
 
   return true;
 }
