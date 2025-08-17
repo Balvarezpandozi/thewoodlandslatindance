@@ -114,4 +114,36 @@ document.addEventListener("DOMContentLoaded", () => {
 
   // Show initial step
   showStep(currentStep);
+
+  const instagramBlocks = document.querySelectorAll(".lazy-instagram");
+
+  if ("IntersectionObserver" in window) {
+    const observer = new IntersectionObserver((entries, obs) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          //Load instagram script dinamically
+          if (!document.getElementById("instagram-embed-script")) {
+            const igScript = document.createElement("script");
+            igScript.id = "instagram-embed-script";
+            igScript.src = "https://www.instagram.com/embed.js";
+            igScript.async = true;
+            igScript.onload = () => window.instgrm.Embeds.process();
+            document.body.appendChild(igScript);
+          } else {
+            //script already loaded, just-reprocess
+            window.instgrm.Embeds.process();
+          }
+          obs.unobserve(entry.target);
+        }
+      });
+    });
+
+    instagramBlocks.forEach((block) => observer.observe(block));
+  } else {
+    // Fallback: load immediately
+    const s = document.createElement("script");
+    s.src = "https://www.instagram.com/embed.js";
+    s.async = true;
+    document.body.appendChild(s);
+  }
 });

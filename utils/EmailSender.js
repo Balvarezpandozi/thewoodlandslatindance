@@ -51,6 +51,7 @@ class EmailSender {
         Event Type: ${options.event.type}
         Date: ${options.event.eventDate.toLocaleDateString()}
         Guest Count: ${options.event.guestCount}
+        Extra: ${options.event.extra}
         Name: ${options.event.fullName}
         Phone: ${options.event.phone}
         Email: ${options.event.email}
@@ -74,6 +75,10 @@ class EmailSender {
           <tr>
             <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Guest Count</td>
             <td style="padding: 0.5rem;">${options.event.guestCount}</td>
+          </tr>
+          <tr>
+            <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Extra</td>
+            <td style="padding: 0.5rem;">${options.event.extra}</td>
           </tr>
           <tr>
             <td style="padding: 0.5rem; font-weight: bold; background-color: #f8f9fa;">Name</td>

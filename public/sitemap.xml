@@ -16,7 +16,7 @@
     <loc>https://thewoodlandslatindance.com/studentresources</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
-    <priority>0.80</priority>
+    <priority>0.70</priority>
   </url>
 
   <!-- Salsa Playlist -->
@@ -37,7 +37,7 @@
 
   <!-- Request Quote -->
   <url>
-    <loc>https://thewoodlandslatindance.com/request-quote</loc>
+    <loc>https://thewoodlandslatindance.com/salsa-bachata-event-class</loc>
     <lastmod>2025-08-10T00:00:00+00:00</lastmod>
     <changefreq>weekly</changefreq>
     <priority>0.90</priority>

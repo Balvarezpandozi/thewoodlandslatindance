@@ -1,7 +1,6 @@
 .hero-graphic {
-  background-image: url("../res/images/blogHeroGraphic.jpg");
+  background-image: url("../res/images/blogHeroGraphic.webp");
   background-size: cover;
-  transition: all ease-in-out 2s;
 }
 
 .transparent-container {

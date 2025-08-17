@@ -1,5 +1,11 @@
 <% layout('layouts/boilerplate') %>
-<div class="px-0 py-0 my-0 text-center hero-graphic">
+<div
+  class="px-0 py-0 my-0 text-center"
+  style="
+    background-image: url('../res/images/blogHeroGraphic.jpg');
+    background-size: cover;
+  "
+>
   <div class="py-5 px-4 transparent-container">
     <img
       class="d-block mx-auto mb-4"
@@ -244,7 +250,7 @@
       >
         <!-- Instagram embed 1 -->
         <blockquote
-          class="instagram-media"
+          class="instagram-media lazy-instagram"
           data-instgrm-permalink="https://www.instagram.com/reel/DM7_bF_1JIN/?utm_source=ig_embed&amp;utm_campaign=loading"
           data-instgrm-version="14"
           style="
@@ -523,7 +529,7 @@
       <div class="col-sm-6 col-md-4">
         <!-- Instagram embed 2 -->
         <blockquote
-          class="instagram-media"
+          class="instagram-media lazy-instagram"
           data-instgrm-permalink="https://www.instagram.com/reel/DJSM-AVxP8v/?utm_source=ig_embed&amp;utm_campaign=loading"
           data-instgrm-version="14"
           style="
@@ -802,7 +808,7 @@
       <div class="col-sm-6 col-md-4">
         <!-- Instagram embed 3 -->
         <blockquote
-          class="instagram-media"
+          class="instagram-media lazy-instagram"
           data-instgrm-permalink="https://www.instagram.com/reel/DMxsN-NV9Jf/?utm_source=ig_embed&amp;utm_campaign=loading"
           data-instgrm-version="14"
           style="
@@ -1145,5 +1151,4 @@
     >
   </div>
 </section>
-<script async src="//www.instagram.com/embed.js"></script>
-<script src="/scripts/events.js"></script>
+<script src="/scripts/events.js" defer></script>

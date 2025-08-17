@@ -18,7 +18,7 @@
     <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
 
     <link
-      href="/stylesheets/fontawesome/css/fontawesome.css"
+      href="/stylesheets/fontawesome/css/fontawesome.min.css"
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
@@ -26,31 +26,33 @@
     <noscript
       ><link
         rel="stylesheet"
-        href="/stylesheets/fontawesome/css/fontawesome.css"
+        href="/stylesheets/fontawesome/css/fontawesome.min.css"
     /></noscript>
 
     <link
-      href="/stylesheets/fontawesome/css/brands.css"
+      href="/stylesheets/fontawesome/css/brands.min.css"
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="/stylesheets/fontawesome/css/brands.css"
+      ><link
+        rel="stylesheet"
+        href="/stylesheets/fontawesome/css/brands.min.css"
     /></noscript>
 
     <link
-      href="/stylesheets/fontawesome/css/solid.css"
+      href="/stylesheets/fontawesome/css/solid.min.css"
       rel="preload"
       as="style"
       onload="this.onload=null;this.rel='stylesheet'"
     />
     <noscript
-      ><link rel="stylesheet" href="/stylesheets/fontawesome/css/solid.css"
+      ><link rel="stylesheet" href="/stylesheets/fontawesome/css/solid.min.css"
     /></noscript>
     <% locals.styleFiles?.forEach((file) => { %>
     <link href="/stylesheets/<%=file%>" rel="stylesheet" />
-    <% }) %> <% if(locals.canonicalTag == undefined) { %>
+    <% }) %> <% if(locals.canonicalTag) { %>
     <link
       rel="canonical"
       href="https://thewoodlandslatindance.com/<%=locals.canonicalTag%>"
