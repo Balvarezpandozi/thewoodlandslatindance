@@ -3,12 +3,12 @@ const nodemailer = require("nodemailer");
 class EmailSender {
   constructor() {}
 
-  async sendEmail(recipient, options) {
+  async sendEmail(recipients, options) {
     const filledTemplate = this.processEmailTemplate(options);
 
     return await this.transport.sendMail({
       from: "The Woodlands Latin Dance' <thewoodlandslatindance@gmail.com>", // sender address
-      to: recipient, // list of receivers
+      to: recipients, // list of receivers
       subject: filledTemplate.subject, // Subject line
       text: filledTemplate.text,
       html: filledTemplate.html, // html body

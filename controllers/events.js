@@ -34,10 +34,13 @@ module.exports.requestQuote = async (req, res) => {
 
   //Send email notifiying me of the quote request
   const mailer = new EmailSender();
-  await mailer.sendEmail("TheWoodlandsLatinDance@gmail.com", {
-    templateName: "EventLead",
-    event: newEventLead,
-  });
+  await mailer.sendEmail(
+    ["TheWoodlandsLatinDance@gmail.com", "bdap121299@gmail.com"],
+    {
+      templateName: "EventLead",
+      event: newEventLead,
+    }
+  );
 
   res.json({ message: "Quote request received successfully" });
 };
