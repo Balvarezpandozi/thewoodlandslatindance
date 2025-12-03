@@ -102,4 +102,21 @@
     </div>
     <% } %>
   </div>
+
+  <h2 class="mx-auto display-5">Email Recipients</h2>
+  <p>
+    <a href="/adminPortal/recipients">See all email recipients</a>
+  </p>
+  <form
+    action="/adminportal/recipients"
+    method="POST"
+    enctype="multipart/form-data"
+  >
+    <p>Submit list to update recipients</p>
+    <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
+    <button type="submit">Upload CSV</button>
+  </form>
+  <a href="/adminportal/getAllRecipients" target="_blank"
+    >Get Recipients List</a
+  >
 </div>
