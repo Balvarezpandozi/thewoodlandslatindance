@@ -1,122 +1,121 @@
 <% layout('layouts/boilerplate') %>
 <div class="container-900px mx-auto my-5 px-5">
   <h1 class="mx-auto text-center display-4">Dashboard</h1>
-  <a href="/auth/logout">Logout</a>
+  <a class="btn btn-danger" href="/auth/logout">Logout</a>
   <h2 class="mx-auto display-5">Announcements</h2>
-  <a href="/adminportal/announcement/new">Create Announcement</a>
-  <div class="card-group">
-    <% for(let announcement of announcements) { %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><%= announcement.title %></h5>
-        <p class="card-text"><%= announcement.description %></p>
-        <p>
-          Context: <% if(announcement.positive) { %> Positive <% } else { %>
-          Negative <% } %>
-        </p>
-        <p>Show from <%= announcement.showFrom.toISOString() %></p>
-        <p>Show until <%= announcement.showUntil.toISOString() %></p>
-        <a href="<%= announcement.link %>" class="card-link"
-          ><%= announcement.link %></a
-        >
-        <form
-          action="/adminportal/announcement/<%= announcement.id %>?_method=DELETE"
-          method="POST"
-        >
-          <button>Delete</button>
-        </form>
-      </div>
-    </div>
-    <% } %>
-  </div>
+  <a class="btn btn-success" href="/adminportal/announcement/new"
+    >New Announcement</a
+  >
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Ttile</th>
+        <th scope="col">Context</th>
+        <th scope="col">Start</th>
+        <th scope="col">End</th>
+        <th scope="col">---</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let announcement of announcements) { %>
+        <tr>
+          <td><%= announcement.title %></td>
+          <td><% if(announcement.positive) { %> Positive <% } else { %> Negative <% } %></td>
+          <td><%= announcement.showFrom.toISOString() %></td>
+          <td><%= announcement.showUntil.toISOString() %></td>
+          <td>
+            <form
+              action="/adminportal/announcement/<%= announcement.id %>?_method=DELETE"
+              method="POST">
+              <button class="btn btn-danger">Delete</button>
+            </form>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
 
   <h2 class="mx-auto display-5">Classes</h2>
-  <a href="/adminportal/class/new">Create Class</a>
-  <div class="card-group">
-    <% for(let danceClass of danceClasses) { %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><%= danceClass.title %></h5>
-        <p class="card-text"><%= danceClass.description %></p>
-        <p>📅DAYS: <%= danceClass.day %></p>
-        <p>DATES: <%= danceClass.dates %></p>
-        <p>⏰TIME: <%= danceClass.time %></p>
-        <p>📍LOCATION: <%= danceClass.location %></p>
-        <form
-          action="/adminportal/class/<%= danceClass.id %>?_method=DELETE"
-          method="POST"
-        >
-          <button>Delete</button>
-        </form>
-      </div>
-    </div>
-    <% } %>
-  </div>
+  <a href="/adminportal/class/new" class="btn btn-success">New Class</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Order</th>
+        <th scope="col">Title</th>
+        <th scope="col">Day</th>
+        <th scope="col">Time</th>
+        <th scope="col">---</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let danceClass of danceClasses) { %>
+      <tr>
+        <td><%= danceClass.order %></td>
+        <td><%= danceClass.title %></td>
+        <td><%= danceClass.day %></td>
+        <td><%= danceClass.time %></td>
+        <td>
+          <form
+            action="/adminportal/class/<%= danceClass.id %>?_method=DELETE"
+            method="POST"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
 
   <h2 class="mx-auto display-5">Prices</h2>
-  <a href="/adminportal/price/new">Create Price</a>
-  <div class="card-group">
-    <% for(let price of prices) { %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title"><%= price.name %></h5>
-        <p class="card-text"><%= price.description %></p>
-        <p class="card-text">Prompt: <%= price.buttonPrompt %></p>
-        <p class="card-text">Price: $<%= price.price %></p>
-        <p class="card-text">Is disabled? <%= price.isDisbaled %></p>
-        <p class="card-text">
-          Requires contact booking? <%= price.contactBooking %>
-        </p>
-        <form
-          action="/adminportal/price/<%= price.id %>?_method=DELETE"
-          method="POST"
-        >
-          <button>Delete</button>
-        </form>
-      </div>
-    </div>
-    <% } %>
-  </div>
-
-  <h2 class="mx-auto display-5">Redirections</h2>
-  <div class="card-group">
-    <% for(let redirection of redirections) { %>
-    <div class="card" style="width: 18rem">
-      <div class="card-body">
-        <h5 class="card-title">ID: <%= redirection.redirectionID %></h5>
-        <p class="card-text">
-          Description: <%= redirection.locationDescription %>
-        </p>
-        <p class="card-text">
-          URL Redirection: <%= redirection.urlRedirection %>
-        </p>
-        <div>
-          <p class="card-text">Leads:</p>
-          <ul>
-            <% for(let lead of redirection.leads) { %>
-            <li><%= lead.timestamp %></li>
-            <% } %>
-          </ul>
-        </div>
-      </div>
-    </div>
-    <% } %>
-  </div>
+  <a class="btn btn-success" href="/adminportal/price/new">New Price</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Price</th>
+        <th scope="col">Disabled</th>
+        <th scope="col">Require Contact</th>
+        <th scope="col">---</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let price of prices) { %>
+      <tr>
+        <td><%= price.name %></td>
+        <td>$<%= price.price %></td>
+        <td><%= price.isDisabled %></td>
+        <td><%= price.contactBooking %></td>
+        <td>
+          <form
+            action="/adminportal/price/<%= price.id %>?_method=DELETE"
+            method="POST"
+          >
+            <button class="btn btn-danger">Delete</button>
+          </form>
+        </td>
+      </tr>
+      <% } %>
+    </tbody>
+  </table>
 
   <h2 class="mx-auto display-5">Email Recipients</h2>
-  <p>
-    <a href="/adminPortal/recipients">See all email recipients</a>
-  </p>
   <form
+    class="mb-3"
     action="/adminportal/recipients"
     method="POST"
     enctype="multipart/form-data"
   >
-    <p>Submit list to update recipients</p>
-    <input type="file" id="csvFile" name="csvFile" accept=".csv" required />
-    <button type="submit">Upload CSV</button>
+  <div class="mb-3">
+    <label for="csvFile" class="form-label">Submit list to update recipients</label>
+    <input class="form-control" type="file" id="csvFile" name="csvFile" accept=".csv" required />
+  </div>
+    <button class="btn btn-primary" type="submit">Upload CSV</button>
   </form>
-  <a href="/adminportal/getAllRecipients" target="_blank"
+  <p>
+    <a class="btn btn-info" href="/adminPortal/recipients">See all email recipients</a>
+  </p>
+  <a class="btn btn-warning" href="/adminportal/getAllRecipients" target="_blank"
     >Get Recipients List</a
   >
 </div>

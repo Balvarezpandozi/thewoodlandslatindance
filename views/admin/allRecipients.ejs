@@ -1,18 +1,31 @@
 <% layout('layouts/boilerplate') %>
 <div class="container-900px mx-auto my-5 px-5">
   <h1 class="mx-auto text-center display-4">All Recipients</h1>
-  <a href="/adminportal">Dashboard</a>
-  <ul>
-    <% for(let recipient of recipients) { %>
-    <li>
-      <%= recipient.name %> - <%= recipient.email %>
-      <button data-id="<%=recipient._id%>" class="recipientSubscribeButton">
-        <% if (recipient.subscribed) { %> Unsubscribe <% } else { %> Subscribe
-        <% } %>
-      </button>
-    </li>
-    <% } %>
-  </ul>
+  <a class="btn btn-primary" href="/adminportal">⬅️ Dashboard</a>
+  <table class="table">
+    <thead>
+      <tr>
+        <th scope="col">Name</th>
+        <th scope="col">Email</th>
+        <th scope="col">Status</th>
+      </tr>
+    </thead>
+    <tbody>
+      <% for(let recipient of recipients) { %>
+        <tr>
+          <td><%= recipient.name %></td>
+          <td><%= recipient.email %></td>
+          <td>
+            <button data-id="<%=recipient._id%>" class="recipientSubscribeButton btn <% if (recipient.subscribed) { %> btn-danger <% } else { %> btn-success <% } %>">
+              <% if (recipient.subscribed) { %> Unsubscribe <% } else { %> Subscribe <% } %>
+            </button>
+          </td>
+        </tr>
+      <% } %>
+    </tbody>
+  </table>
 </div>
 
 <script src="/scripts/allRecipients.js"></script>
+
+

@@ -11,7 +11,7 @@ const RecipientSchema = new Schema({
     validate: {
       validator: validateEmail,
       message:
-        "Email is invalid. It musT have the following format example@example.com",
+        "Email is invalid. It must have the following format example@example.com",
     },
   },
   subscribed: { type: Boolean, default: true },

@@ -12,12 +12,10 @@ const { ExpressError } = require("../utils/ErrorHandler");
 module.exports.renderDashboard = async (req, res) => {
   const announcements = await Announcements.find();
   const danceClasses = await DanceClass.find();
-  const redirections = await Redirection.find().populate("leads");
   const prices = await Price.find();
   res.render("admin/dashboard", {
     announcements: announcements,
     danceClasses: danceClasses,
-    redirections: redirections,
     prices: prices,
   });
 };
