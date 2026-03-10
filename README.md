@@ -201,3 +201,7 @@ It follows an **MVC (Model–View–Controller)** structure enhanced by service 
 > - **Services** manage database and reusable logic.
 > - **Utils** contain helpers and error handling utilities.
 > - **Views** serve dynamic EJS-rendered pages.
+
+# ISSUES
+
+> Submitted CSV file to add recipients and found duplicate recipients (mispelled email but exact name)

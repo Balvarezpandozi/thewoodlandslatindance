@@ -40,7 +40,7 @@
 
           <p>⏰ TIME: <strong><%= danceClass.time %></strong></p>
           <p>📌 LOCATION: <strong><%= danceClass.location %></strong></p>
-          <a target="_blank" href="https://member.life/thewoodlandslatindance/register" class="btn btn-success">Register to RSVP</a>
+          <a target="_blank" href="<%= danceClass.url %>" class="btn btn-success"><%= danceClass.buttonPrompt %></a>
         </div>
       </div>
     <% } %>

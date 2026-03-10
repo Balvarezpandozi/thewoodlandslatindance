@@ -1,7 +1,6 @@
 const Announcements = require("../models/announcement");
 const DanceClass = require("../models/danceClass");
 const Price = require("../models/price");
-const Redirection = require("../models/redirection");
 const Recipient = require("../models/recipient");
 const { formatDanceClassDates } = require("../utils/formatHelper");
 const { validateDanceClassDates } = require("../utils/validationHelper");
@@ -51,8 +50,17 @@ module.exports.renderNewClassForm = (req, res) => {
 };
 
 module.exports.createClass = async (req, res) => {
-  const { title, description, day, location, time, dates, order } =
-    req.body.danceClass;
+  const {
+    title,
+    description,
+    day,
+    location,
+    time,
+    dates,
+    buttonPrompt,
+    url,
+    order,
+  } = req.body.danceClass;
 
   if (!validateDanceClassDates(dates)) {
     throw new Error("Invalid dates");
@@ -65,6 +73,8 @@ module.exports.createClass = async (req, res) => {
     location: location,
     time: time,
     dates: formatDanceClassDates(dates),
+    buttonPrompt: buttonPrompt,
+    url: url,
     order: order,
   });
 
@@ -133,14 +143,14 @@ module.exports.uploadRecipientsCSV = async (req, res) => {
       .pipe(csv())
       .on("headers", (headers) => {
         const missing = EXPECTED_HEADERS.filter(
-          (header) => !headers.includes(header)
+          (header) => !headers.includes(header),
         );
         if (missing.length > 0) {
           fs.unlinkSync(filePath);
-          reject(
-            new ExpressError(`Missing required columns ${missing.join(", ")}`)
+          (reject(
+            new ExpressError(`Missing required columns ${missing.join(", ")}`),
           ),
-            400;
+            400);
         }
       })
       .on("data", (row) => {
@@ -175,7 +185,7 @@ module.exports.uploadRecipientsCSV = async (req, res) => {
   const modified = result.modifiedCount;
 
   console.log(
-    `CSV processed successfully — ${inserted} new recipients added, ${modified} updated.`
+    `CSV processed successfully — ${inserted} new recipients added, ${modified} updated.`,
   );
 
   //req.flash("success", `${recipients.length} recipients uploaded successfully!`);

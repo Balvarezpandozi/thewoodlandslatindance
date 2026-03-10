@@ -30,11 +30,11 @@ app.use(
   express.static(path.join(__dirname, "./public"), {
     //maxAge: "30d", // Cache for 30 days (in milliseconds or a string accepted by the ms module)
     //immutable: true, // (Optional) Indicates that the file won't change (for supported clients)
-  })
+  }),
 );
 app.use(
   "/sitemap.xml",
-  express.static(path.join(__dirname, "public", "sitemap.xml"))
+  express.static(path.join(__dirname, "public", "sitemap.xml")),
 );
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
@@ -48,7 +48,7 @@ app.use(
     cookie: {
       expires: 1000 * 60 * 60 * 24 * 7,
     },
-  })
+  }),
 );
 
 //Authentication
@@ -59,8 +59,8 @@ passport.use(
     {
       usernameField: "email",
     },
-    User.authenticate()
-  )
+    User.authenticate(),
+  ),
 );
 passport.serializeUser(User.serializeUser());
 passport.deserializeUser(User.deserializeUser());

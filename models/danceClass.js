@@ -26,6 +26,8 @@ const DanceClassSchema = new Schema({
   addressLocality: { type: String },
   streetAddress: { type: String },
   postalCode: { type: String },
+  url: { type: String, required: true },
+  buttonPrompt: { type: String, required: true },
 });
 
 module.exports = mongoose.model("DanceClass", DanceClassSchema);
