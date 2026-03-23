@@ -13,9 +13,10 @@ const Database = require("./services/database");
 
 const homepageRouter = require("./routes/homepage");
 const eventsRouter = require("./routes/events");
+const specialClassRouter = require("./routes/specialClass");
 const studentResourcesRouter = require("./routes/studentResources");
 const qrCodeRouter = require("./routes/qrCode");
-const adminRouter = require("./routes/admin");
+const adminRouter = require("./routes/admin/index");
 const userRouter = require("./routes/user");
 
 const db = new Database();
@@ -67,6 +68,7 @@ passport.deserializeUser(User.deserializeUser());
 
 app.use("/", homepageRouter);
 app.use("/salsa-bachata-event-class", eventsRouter);
+app.use("/bachata-crash-course", specialClassRouter);
 app.use("/studentResources", studentResourcesRouter);
 app.use("/qrCode", qrCodeRouter);
 app.use("/adminportal", adminRouter);

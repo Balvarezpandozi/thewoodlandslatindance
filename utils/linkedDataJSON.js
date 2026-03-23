@@ -1,3 +1,107 @@
+module.exports.bachataCrashCourse = JSON.stringify({
+  "@context": "https://schema.org",
+  "@type": ["WebPage", "Event"],
+  name: "Bachata Crash Course - The Woodlands Latin Dance",
+  description:
+    "Learn bachata in 1 hour! Beginner-friendly crash course in The Woodlands, TX. No partner needed. Get your tickets now and gain confidence on the dance floor.",
+  url: "https://www.thewoodlandslatindance.com/bachata-crash-course",
+  breadcrumb: {
+    "@type": "BreadcrumbList",
+    itemListElement: [
+      {
+        "@type": "ListItem",
+        position: 1,
+        name: "Home",
+        item: "https://www.thewoodlandslatindance.com",
+      },
+      {
+        "@type": "ListItem",
+        position: 2,
+        name: "Bachata Crash Course",
+        item: "https://www.thewoodlandslatindance.com/bachata-crash-course",
+      },
+    ],
+  },
+  publisher: {
+    "@type": "Organization",
+    name: "The Woodlands Latin Dance",
+    logo: {
+      "@type": "ImageObject",
+      url: "https://www.thewoodlandslatindance.com/res/images/logo.png",
+    },
+  },
+  mainEntity: {
+    "@type": "Organization",
+    name: "The Woodlands Latin Dance",
+    url: "https://www.thewoodlandslatindance.com",
+    telephone: "+1-281-202-2058",
+    address: {
+      "@type": "PostalAddress",
+      streetAddress: "25323 I-45",
+      addressLocality: "Spring",
+      addressRegion: "TX",
+      postalCode: "77380",
+      addressCountry: "US",
+    },
+    contactPoint: {
+      "@type": "ContactPoint",
+      telephone: "+1-281-202-2058",
+      contactType: "sales",
+      areaServed: ["US-TX"],
+      availableLanguage: ["English", "Spanish"],
+    },
+  },
+  event: {
+    "@type": "DanceEvent",
+    name: "Bachata Crash Course",
+    startDate: "2026-04-02T19:00",
+    endDate: "2026-04-02T20:00",
+    eventAttendanceMode: "https://schema.org/OfflineEventAttendanceMode",
+    eventStatus: "https://schema.org/EventScheduled",
+    location: {
+      "@type": "Place",
+      name: "The Woodlands Latin Dance",
+      address: {
+        "@type": "PostalAddress",
+        streetAddress: "25323 I-45",
+        addressLocality: "Spring",
+        addressRegion: "TX",
+        postalCode: "77380",
+        addressCountry: "US",
+      },
+    },
+    offers: {
+      "@type": "Offer",
+      url: "https://www.thewoodlandslatindance.com/bachata-crash-course",
+      price: "20",
+      priceCurrency: "USD",
+      availability: "https://schema.org/InStock",
+      validFrom: "2026-03-22T00:00",
+    },
+    performer: {
+      "@type": "DanceGroup",
+      name: "The Woodlands Latin Dance",
+    },
+    potentialAction: {
+      "@type": "ReserveAction",
+      target: {
+        "@type": "EntryPoint",
+        urlTemplate:
+          "https://www.thewoodlandslatindance.com/bachata-crash-course",
+        inLanguage: "en-US",
+        actionPlatform: [
+          "http://schema.org/DesktopWebPlatform",
+          "http://schema.org/MobileWebPlatform",
+        ],
+      },
+      result: {
+        "@type": "Reservation",
+        name: "Bachata Crash Course Ticket",
+      },
+    },
+  },
+});
+
 module.exports.eventsPageLDJSON = JSON.stringify({
   "@context": "https://schema.org",
   "@type": ["WebPage", "ContactPage"],
@@ -175,14 +279,14 @@ function getEvents(classes) {
       new Date().getFullYear(),
       monthIndex,
       startEndDates[0],
-      +danceClass.time.slice(0, -3) + 12
+      +danceClass.time.slice(0, -3) + 12,
     );
 
     const endDate = new Date(
       new Date().getFullYear(),
       monthIndex,
       startEndDates[1],
-      +danceClass.time.slice(0, -3) + 13
+      +danceClass.time.slice(0, -3) + 13,
     );
 
     let event = {

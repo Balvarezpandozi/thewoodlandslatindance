@@ -53,3 +53,72 @@ describe("Test events controller", () => {
     await mongoServer.stop();
   });
 });
+
+describe("Test request quote", () => {
+  let mongoServer;
+  let sendEmailMock;
+
+  beforeEach(async () => {
+    await mongoose.disconnect();
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = mongoServer.getUri();
+    await mongoose.connect(mongoUri);
+
+    sendEmailMock = jest.fn().mockResolvedValue(true);
+
+    EmailSender.mockImplementation(() => ({
+      sendEmail: sendEmailMock,
+    }));
+  });
+
+  afterEach(async () => {
+    await mongoose.connection.close();
+    await mongoServer.stop();
+    jest.clearAllMocks();
+  });
+
+  it("should create event lead and send email", async () => {
+    const req = {
+      body: {
+        event: {
+          timestamp: new Date(),
+          type: "Corporate Event",
+          extra: "Only need a venue",
+          date: new Date(),
+          guestCount: "9999",
+          fullName: "Customer",
+          phone: "2812022058",
+          email: "mock@gmail.com",
+        },
+      },
+    };
+
+    const res = {
+      json: jest.fn(),
+    };
+
+    await eventsController.requestQuote(req, res);
+
+    // ✅ Verify DB save
+    const savedEvent = await Event.findOne({ email: "mock@gmail.com" });
+
+    expect(savedEvent).not.toBeNull();
+    expect(savedEvent.type).toBe("Corporate Event");
+    expect(savedEvent.guestCount).toBe("9999");
+    expect(savedEvent.fullName).toBe("Customer");
+
+    // ✅ Verify email sent
+    expect(sendEmailMock).toHaveBeenCalledWith(
+      ["TheWoodlandsLatinDance@gmail.com", "bdap121299@gmail.com"],
+      expect.objectContaining({
+        templateName: "EventLead",
+        event: expect.any(Object),
+      }),
+    );
+
+    // ✅ Verify response
+    expect(res.json).toHaveBeenCalledWith({
+      message: "Quote request received successfully",
+    });
+  });
+});
