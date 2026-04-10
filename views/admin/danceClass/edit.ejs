@@ -1,0 +1,146 @@
+<% layout('layouts/boilerplate') %>
+<div class="form-container py-5">
+  <div class="container-900px mx-auto my-5 px-5">
+    <h1 class="mx-auto text-center display-4">Edit Class</h1>
+    <a class="btn btn-primary" href="/adminportal/class/<%=danceClass._id%>"
+      >⬅️ Back to Class</a
+    >
+    <form
+      action="/adminportal/class/<%= danceClass._id %>?_method=PUT"
+      method="POST"
+      class="needs-validation"
+      novalidate
+    >
+      <div class="form-group mb-3">
+        <label for="title">Title</label>
+        <input
+          type="text"
+          class="form-control"
+          id="title"
+          name="danceClass[title]"
+          placeholder="The best class title example"
+          value="<%= danceClass.title %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the title...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="description">Description</label>
+        <input
+          type="text"
+          class="form-control"
+          id="description"
+          name="danceClass[description]"
+          placeholder="Describe the class here"
+          value="<%= danceClass.description %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter description...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="day">Week Day</label>
+        <input
+          type="text"
+          class="form-control"
+          id="day"
+          name="danceClass[day]"
+          placeholder="Write the week day here"
+          value="<%= danceClass.day %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter a week day here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="location">Location</label>
+        <input
+          type="text"
+          class="form-control"
+          id="location"
+          name="danceClass[location]"
+          placeholder="Adress here!"
+          value="<%= danceClass.location %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the address here here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="time">Time</label>
+        <input
+          type="text"
+          class="form-control"
+          id="time"
+          name="danceClass[time]"
+          placeholder="7 PM for example"
+          value="<%= danceClass.time %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the time here here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="dates">Dates</label>
+        <input
+          type="text"
+          class="form-control"
+          id="dates"
+          name="danceClass[dates]"
+          placeholder="February:8th,15th,22nd;March:1st;"
+          pattern="^([A-Za-z]+:\d{1,2}(st|nd|rd|th)(,\d{1,2}(st|nd|rd|th))*;)+"
+          value="<%= dates %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter the dates here...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="buttonPrompt">Button Prompt</label>
+        <input
+          type="text"
+          class="form-control"
+          id="buttonPrompt"
+          name="danceClass[buttonPrompt]"
+          placeholder="Write the price button prompt here"
+          value="<%= danceClass.buttonPrompt %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter button prompt...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="url">URL</label>
+        <input
+          type="text"
+          class="form-control"
+          id="url"
+          name="danceClass[url]"
+          placeholder="Enter url for payment page"
+          value="<%= danceClass.url %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter button prompt...</div>
+      </div>
+      <div class="form-group mb-3">
+        <label for="order">Position</label>
+        <input
+          type="number"
+          class="form-control"
+          id="order"
+          name="danceClass[order]"
+          placeholder="Unique integer"
+          value="<%= danceClass.order %>"
+          required
+        />
+        <div class="valid-feedback">Looks good!</div>
+        <div class="invalid-feedback">Enter an integer here...</div>
+      </div>
+      <button type="submit" class="btn btn-success">Submit</button>
+    </form>
+  </div>
+</div>
+
+<script src="/scripts/danceClassForm.js"></script>

@@ -48,10 +48,10 @@
       </tr>
     </thead>
     <tbody>
-      <% for(let danceClass of danceClasses) { %>
+      <% for(let danceClass of danceClasses.sort((a,b) => a.order - b.order)) { %>
       <tr>
         <td><%= danceClass.order %></td>
-        <td><%= danceClass.title %></td>
+        <td><a href="/adminPortal/class/<%= danceClass._id %>"><%= danceClass.title %></a></td>
         <td><%= danceClass.day %></td>
         <td><%= danceClass.time %></td>
         <td>
@@ -115,7 +115,7 @@
   <p>
     <a class="btn btn-info" href="/adminPortal/recipients">See all email recipients</a>
   </p>
-  <a class="btn btn-warning" href="/adminportal/getAllRecipients" target="_blank"
+  <a class="btn btn-warning" href="/adminportal/recipeints/getAllRecipients" target="_blank"
     >Get Recipients List</a
   >
 </div>

@@ -10,5 +10,10 @@ router
   .post(isLoggedIn, catchAsync(danceClassController.createClass));
 router
   .route("/:id")
+  .get(isLoggedIn, catchAsync(danceClassController.renderDanceClass))
+  .put(isLoggedIn, catchAsync(danceClassController.editClass))
   .delete(isLoggedIn, catchAsync(danceClassController.deleteClass));
+router
+  .route("/edit/:id")
+  .get(isLoggedIn, catchAsync(danceClassController.renderEditClassForm));
 module.exports = router;
