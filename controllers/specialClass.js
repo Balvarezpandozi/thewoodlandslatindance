@@ -10,15 +10,6 @@ module.exports.renderBachataCrashCourse = (req, res) => {
     linkedDataJson: ldjson.bachataCrashCourse,
   });
 
-  const pageInteraction = new PageInteraction({
-    url: "https://thewoodlandslatindance.com/bachata-crashcourse",
-    timestamp: new Date(),
-    type: "view",
-  });
-  pageInteraction.save().catch((err) => {
-    console.error("Error tracking page view:", err);
-  });
-
   res.render("events/specialClass", {
     locals: viewLocals,
   });

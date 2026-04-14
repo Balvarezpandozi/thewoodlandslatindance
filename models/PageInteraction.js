@@ -5,10 +5,11 @@ const PageInteraction = new Schema({
   url: { type: String, required: true },
   type: {
     type: String,
-    enum: ["view", "saleButton", "Redirection"],
+    enum: ["visit", "click", "Redirection"],
     required: true,
   },
   timestamp: { type: Date, required: true },
+  visitorId: { type: String, required: true },
 });
 
 module.exports = mongoose.model("PageInteraction", PageInteraction);

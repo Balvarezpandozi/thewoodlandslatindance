@@ -18,6 +18,7 @@ const studentResourcesRouter = require("./routes/studentResources");
 const qrCodeRouter = require("./routes/qrCode");
 const adminRouter = require("./routes/admin/index");
 const userRouter = require("./routes/user");
+const trackRouter = require("./routes/track");
 
 const db = new Database();
 db.connect();
@@ -37,6 +38,7 @@ app.use(
   "/sitemap.xml",
   express.static(path.join(__dirname, "public", "sitemap.xml")),
 );
+app.use("/track", express.text({ type: "*/*" }));
 app.use(express.urlencoded({ extended: true }));
 app.use(express.json());
 app.use(methodOverride("_method"));
@@ -73,6 +75,7 @@ app.use("/studentResources", studentResourcesRouter);
 app.use("/qrCode", qrCodeRouter);
 app.use("/adminportal", adminRouter);
 app.use("/auth", userRouter);
+app.use("/track", trackRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));

@@ -1,0 +1,73 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <meta
+      name="description"
+      content="The Woodlands Latin Dance offers salsa and bachata classes in The Woodlands, TX and Spring, TX. Learn in a welcoming environment with expert instructors. No partner needed!"
+    />
+    <meta
+      name="keywords"
+      content="salsa classes, bachata classes, dance lessons, The Woodlands, Latin dance, Spring TX, beginner"
+    />
+    <meta name="author" content="The Woodlands Latin Dance" />
+    <link rel="icon" href="/res/images/logo.webp" />
+
+    <link rel="stylesheet" href="/stylesheets/bootstrap.min.css" />
+
+    <link
+      href="/stylesheets/fontawesome/css/fontawesome.min.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/stylesheets/fontawesome/css/fontawesome.min.css"
+    /></noscript>
+
+    <link
+      href="/stylesheets/fontawesome/css/brands.min.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link
+        rel="stylesheet"
+        href="/stylesheets/fontawesome/css/brands.min.css"
+    /></noscript>
+
+    <link
+      href="/stylesheets/fontawesome/css/solid.min.css"
+      rel="preload"
+      as="style"
+      onload="this.onload=null;this.rel='stylesheet'"
+    />
+    <noscript
+      ><link rel="stylesheet" href="/stylesheets/fontawesome/css/solid.min.css"
+    /></noscript>
+    <% locals.styleFiles?.forEach((file) => { %>
+    <link href="/stylesheets/<%=file%>" rel="stylesheet" />
+    <% }) %> <% if(locals.canonicalTag) { %>
+    <link
+      rel="canonical"
+      href="https://thewoodlandslatindance.com/<%=locals.canonicalTag%>"
+    />
+    <% } %>
+
+    <title><%=locals.pageTitle%></title>
+
+    <!-- Structured Data Markup -->
+    <script type="application/ld+json">
+      <%- locals.linkedDataJson %>
+    </script>
+  </head>
+  <body>
+    <%- body %>
+    <script src="/scripts/bootstrap.bundle.min.js"></script>
+  </body>
+</html>
