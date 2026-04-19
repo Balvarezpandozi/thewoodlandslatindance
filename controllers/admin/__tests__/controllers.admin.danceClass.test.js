@@ -11,7 +11,7 @@ describe("Test classes routes", () => {
       render: jest.fn(),
     };
     await danceClassController.renderNewClassForm(req, res);
-    expect(res.render.mock.calls[0][0]).toBe("admin/newClass");
+    expect(res.render.mock.calls[0][0]).toBe("admin/danceClass/new");
   });
 
   it("should create a class", async () => {
@@ -116,5 +116,165 @@ describe("Test classes routes", () => {
 
     await mongoose.connection.close();
     await mongoServer.stop();
+  });
+
+  it("renders dance class", async () => {
+    await mongoose.disconnect();
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = mongoServer.getUri();
+    await mongoose.connect(mongoUri);
+
+    const danceClass = new DanceClasses({
+      title: "Test Class",
+      description: "A new class!",
+      day: "WeekDay",
+      time: "8 PM",
+      location: "address",
+      dates: [
+        { month: "February", dates: "8th,15th,22nd" },
+        { month: "March", dates: "1st" },
+      ],
+      order: 1,
+      url: "https://member.life/thewoodlandslatindance",
+      buttonPrompt: "button prompt",
+    });
+
+    await danceClass.save();
+
+    const req = {
+      params: { id: danceClass._id },
+    };
+    const res = {
+      render: jest.fn(),
+    };
+    await danceClassController.renderDanceClass(req, res);
+    expect(res.render.mock.calls[0][0]).toBe("admin/danceClass/index");
+  });
+
+  it("renders edit dance class form", async () => {
+    await mongoose.disconnect();
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = mongoServer.getUri();
+    await mongoose.connect(mongoUri);
+
+    const danceClass = new DanceClasses({
+      title: "Test Class",
+      description: "A new class!",
+      day: "WeekDay",
+      time: "8 PM",
+      location: "address",
+      dates: [
+        { month: "February", dates: "8th,15th,22nd" },
+        { month: "March", dates: "1st" },
+      ],
+      order: 1,
+      url: "https://member.life/thewoodlandslatindance",
+      buttonPrompt: "button prompt",
+    });
+
+    await danceClass.save();
+
+    const req = {
+      params: { id: danceClass._id },
+    };
+    const res = {
+      render: jest.fn(),
+    };
+    await danceClassController.renderEditClassForm(req, res);
+    expect(res.render.mock.calls[0][0]).toBe("admin/danceClass/edit");
+  });
+
+  it("Edit dance class form", async () => {
+    await mongoose.disconnect();
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = mongoServer.getUri();
+    await mongoose.connect(mongoUri);
+
+    const danceClass = new DanceClasses({
+      title: "Test Class",
+      description: "A new class!",
+      day: "WeekDay",
+      time: "8 PM",
+      location: "address",
+      dates: [
+        { month: "February", dates: "8th,15th,22nd" },
+        { month: "March", dates: "1st" },
+      ],
+      order: 1,
+      url: "https://member.life/thewoodlandslatindance",
+      buttonPrompt: "button prompt",
+    });
+
+    await danceClass.save();
+
+    const req = {
+      params: { id: danceClass._id },
+      body: {
+        danceClass: {
+          title: "Edited Test Class",
+          description: "A new class!",
+          day: "WeekDay",
+          time: "8 PM",
+          location: "address",
+          dates: "February:19th,15th,22nd;March:4st;",
+          order: 1,
+          url: "https://member.life/thewoodlandslatindance",
+          buttonPrompt: "button prompt edited",
+        },
+      },
+    };
+    const res = {
+      redirect: jest.fn(),
+    };
+    await danceClassController.editClass(req, res);
+    const editedDanceClass = await DanceClasses.findById(danceClass._id);
+    expect(editedDanceClass.title).toBe("Edited Test Class");
+  });
+
+  it("Should throw error with invalid dates", async () => {
+    await mongoose.disconnect();
+    mongoServer = await MongoMemoryServer.create();
+    const mongoUri = mongoServer.getUri();
+    await mongoose.connect(mongoUri);
+
+    const danceClass = new DanceClasses({
+      title: "Test Class",
+      description: "A new class!",
+      day: "WeekDay",
+      time: "8 PM",
+      location: "address",
+      dates: [
+        { month: "February", dates: "8th,15th,22nd" },
+        { month: "March", dates: "1st" },
+      ],
+      order: 1,
+      url: "https://member.life/thewoodlandslatindance",
+      buttonPrompt: "button prompt",
+    });
+
+    await danceClass.save();
+
+    const req = {
+      params: { id: danceClass._id },
+      body: {
+        danceClass: {
+          title: "Edited Test Class",
+          description: "A new class!",
+          day: "WeekDay",
+          time: "8 PM",
+          location: "address",
+          dates: "February:19th,15th22March:4st",
+          order: 1,
+          url: "https://member.life/thewoodlandslatindance",
+          buttonPrompt: "button prompt edited",
+        },
+      },
+    };
+    const res = {
+      redirect: jest.fn(),
+    };
+    expect(async () => {
+      await danceClassController.editClass(req, res);
+    }).rejects.toThrow();
   });
 });
