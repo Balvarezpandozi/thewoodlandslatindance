@@ -35,7 +35,7 @@ module.exports.renderHomepage = async (req, res) => {
 
 module.exports.renderCancellationPolicy = (req, res) => {
   const viewLocals = new ViewLocals({
-    styleFiles: ["mainPage.css"],
+    styleFiles: ["mainpage.css"],
     pageTitle: "Private Lesson - Cancellation Policy",
     canonicalTag: "cancellation-policy",
   });
