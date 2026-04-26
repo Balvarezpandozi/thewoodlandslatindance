@@ -64,19 +64,22 @@
         <a target="_blank" href="<%=price.url%>" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></a>
         <% } else { %>
         <p><strong>💵Payment methods:</strong> Payments are handled onsite (cash, Zelle) or online.</p>
-        <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>">Contact The Woodlands Latin Dance</button>
+        <button id="contactButton" type="button" data-bs-toggle="modal" data-bs-target="#contactModal" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></button>
         <div id="contactModal" class="modal" tabindex="-1">
           <div class="modal-dialog" >
             <div class="modal-content text-white" style="background-color: #2b3035"">
               <div class="modal-header">
-                <h5 class="modal-title">Contact The Woodlands Latin Dance</h5>
+                <h5 class="modal-title"><%= price.buttonPrompt %></h5>
                 <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
               </div>
               <div class="modal-body">
-                <p>For private lessons, please contact The Woodlands Latin Dance to arrange a 1-hour session with an instructor.</p>
+                <p>For private lessons, please contact The Woodlands Latin Dance after purchasing to arrange a 1-hour session with an instructor.</p>
+                <a target="_blank" href="<%=price.url%>" class="btn <% if(price.isDisabled) { %> disabled disabled-link-text<% } else { %> btn-success <% } %>"><%= price.buttonPrompt %></a>
+                <p></p>
                 <p>You can call: <i class="fas fa-phone mr-3"></i> <a class="link" href="tel:<%= locals.phoneNumber %>"><%= locals.formattedPhoneNumber %></a></p>
                 <p>You can send a message on <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.instagram.com/thewoodlandslatindance/"><i class="fab fa-instagram"></i></a>, <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://www.facebook.com/profile.php?id=61568719342267"><i class="fab fa-facebook-f"></i></a> or <a class="btn btn-outline-light btn-floating m-1" class="text-white" role="button" target="_blank" href="https://wa.me/message/XPUDW3X4DZIDK1"><i class="fab fa-whatsapp"></i></a></p>
                 <p>Or Email us at: <i class="fas fa-envelope mr-3"></i><a class="link" href="mailto:TheWoodlandsLatinDance@gmail.com" target="_blank"> TheWoodlandsLatinDance@gmail.com</a></p>
+                <p>Read our <a class="link" href="/cancellation-policy"> cancellation policy</a> before purchasing.</p>
               </div>
               <div class="modal-footer">
                 <button type="button" class="btn btn-success" data-bs-dismiss="modal">Close</button>

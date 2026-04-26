@@ -32,3 +32,14 @@ module.exports.renderHomepage = async (req, res) => {
     prices: prices,
   });
 };
+
+module.exports.renderCancellationPolicy = (req, res) => {
+  const viewLocals = new ViewLocals({
+    styleFiles: ["mainPage.css"],
+    pageTitle: "Private Lesson - Cancellation Policy",
+    canonicalTag: "cancellation-policy",
+  });
+  res.render("main/cancellationPolicy", {
+    locals: viewLocals,
+  });
+};
