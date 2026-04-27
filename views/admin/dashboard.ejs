@@ -1,7 +1,9 @@
 <% layout('layouts/boilerplate') %>
 <div class="container-900px mx-auto my-5 px-5">
   <h1 class="mx-auto text-center display-4">Dashboard</h1>
-  <a class="btn btn-danger" href="/auth/logout">Logout</a>
+  <a class="btn btn-danger" href="/auth/logout">Logout</a> 
+  <a class="btn btn-info" href="#">See Website Metrics</a>
+
   <h2 class="mx-auto display-5">Announcements</h2>
   <a class="btn btn-success" href="/adminportal/announcement/new"
     >New Announcement</a
@@ -82,7 +84,7 @@
     <tbody>
       <% for(let price of prices) { %>
       <tr>
-        <td><%= price.name %></td>
+        <td><a href="/adminPortal/price/<%= price._id %>"><%= price.name %></a></td>
         <td>$<%= price.price %></td>
         <td><%= price.isDisabled %></td>
         <td><%= price.contactBooking %></td>
