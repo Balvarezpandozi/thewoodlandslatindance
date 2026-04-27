@@ -35,3 +35,26 @@ module.exports.deletePrice = async (req, res) => {
   await Price.findByIdAndDelete(req.params.id);
   res.redirect(`/adminportal`);
 };
+
+module.exports.renderPrice = async (req, res) => {
+  let price = await Price.findById(req.params.id);
+  res.render("admin/price/index", { price: price });
+};
+
+module.exports.renderEditPriceForm = async (req, res) => {
+  let price = await Price.findById(req.params.id);
+  res.render("admin/price/edit", {
+    price: price,
+  });
+};
+
+module.exports.editPrice = async (req, res) => {
+  const updates = req.body.price;
+
+  await Price.findByIdAndUpdate(req.params.id, updates, {
+    new: true,
+    runValidators: true,
+  });
+
+  res.redirect("/adminportal");
+};

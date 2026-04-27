@@ -10,5 +10,10 @@ router
   .post(isLoggedIn, catchAsync(priceController.createPrice));
 router
   .route("/:id")
+  .get(isLoggedIn, catchAsync(priceController.renderPrice))
+  .put(isLoggedIn, catchAsync(priceController.editPrice))
   .delete(isLoggedIn, catchAsync(priceController.deletePrice));
+router
+  .route("/edit/:id")
+  .get(isLoggedIn, catchAsync(priceController.renderEditPriceForm));
 module.exports = router;
