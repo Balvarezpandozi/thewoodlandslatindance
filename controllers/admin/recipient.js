@@ -53,6 +53,7 @@ module.exports.uploadRecipientsCSV = async (req, res) => {
       update: {
         $set: {
           name: data["FULL NAME"],
+          timestamp: new Date(),
         },
       },
       upsert: true, // create if doesn't exist

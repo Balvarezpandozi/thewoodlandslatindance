@@ -2,6 +2,7 @@ const {
   dateToUTCString,
   formatNumber,
   formatDanceClassDates,
+  formatDateClassString,
 } = require("../formatHelper");
 
 describe("Test format helper utility", () => {
@@ -50,6 +51,15 @@ describe("Test format helper utility", () => {
         { month: "July", dates: "20th" },
       ];
       expect(formatDanceClassDates(input)).toEqual(expectedOutput);
+    });
+
+    it("should format object to valid string", () => {
+      const input = [
+        { month: "June", dates: "15th, 16th" },
+        { month: "July", dates: "20th" },
+      ];
+      const expectedOutput = "June:15th,16th;July:20th;";
+      expect(formatDateClassString(input)).toEqual(expectedOutput);
     });
   });
 });

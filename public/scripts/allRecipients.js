@@ -64,29 +64,39 @@ function sortRecipients(button, sortingFunction) {
   button.dataset.ascending = (!ascending).toString();
 }
 
+function sortByTimestamp(button) {
+  const timestampSorting = (a, b) => {
+    return (
+      new Date(a.children[0].textContent.trim()) -
+      new Date(b.children[0].textContent.trim())
+    );
+  };
+  sortRecipients(button, timestampSorting);
+}
+
 function sortByName(button) {
   const nameSorting = (a, b) => {
-    return a.children[0].textContent
+    return a.children[1].textContent
       .trim()
-      .localeCompare(b.children[0].textContent.trim());
+      .localeCompare(b.children[1].textContent.trim());
   };
   sortRecipients(button, nameSorting);
 }
 
 function sortByEmail(button) {
   const emailSorting = (a, b) => {
-    return a.children[1].textContent
+    return a.children[2].textContent
       .trim()
-      .localeCompare(b.children[1].textContent.trim());
+      .localeCompare(b.children[2].textContent.trim());
   };
   sortRecipients(button, emailSorting);
 }
 
 function sortByStatus(button) {
   const statusSorting = (a, b) => {
-    return a.children[2].textContent
+    return a.children[3].textContent
       .trim()
-      .localeCompare(b.children[2].textContent.trim());
+      .localeCompare(b.children[3].textContent.trim());
   };
   sortRecipients(button, statusSorting);
 }

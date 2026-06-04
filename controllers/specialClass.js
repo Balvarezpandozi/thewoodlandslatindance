@@ -12,5 +12,13 @@ module.exports.renderBachataCrashCourse = (req, res) => {
 
   res.render("events/specialClass", {
     locals: viewLocals,
+    danceClass: {
+      date: "June 14th",
+      time: "3:00 PM",
+      promoEnd: "June 13th",
+      promoPrice: "$20",
+      regularPrice: "$25",
+      paymentLink: "https://member.life/thewoodlandslatindance/offer/5900",
+    },
   });
 };

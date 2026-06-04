@@ -1,4 +1,4 @@
-<% layout('layouts/boilerplateNoPartials') %>
+<% layout('layouts/boilerplate') %>
 
 <div class="transparent-container white-text py-5">
   <!-- HERO -->
@@ -19,7 +19,8 @@
       ⚠️ Last class sold out — limited spots available
     </p>
     <a
-      href="https://member.life/thewoodlandslatindance/offer/5900"
+      href="<%= danceClass.paymentLink %>"
+      target="_blank"
       class="btn btn-lg px-5 button-effect"
     >
       Get Class Pass
@@ -72,11 +73,12 @@
       <p class="mb-2">
         <strong>📍 Location:</strong> 25323 I-45, The Woodlands, TX
       </p>
-      <p class="mb-2"><strong>📅 Date:</strong> May 2nd</p>
-      <p class="mb-3"><strong>⏰ Time:</strong> 3:00 PM</p>
+      <p class="mb-2"><strong>📅 Date:</strong> <%= danceClass.date %></p>
+      <p class="mb-3"><strong>⏰ Time:</strong> <%= danceClass.time %></p>
 
       <a
-        href="https://member.life/thewoodlandslatindance/offer/5900"
+        href="<%= danceClass.paymentLink %>"
+        target="_blank"
         class="btn button-effect btn-lg"
       >
         Reserve My Spot
@@ -169,13 +171,19 @@
     <div class="card bg-dark text-white border-0 shadow-lg p-4">
       <h3 class="mb-3">Pricing</h3>
 
-      <p class="mb-2"><strong>Early Bird:</strong> $20 until May 1st</p>
-      <p class="mb-3"><strong>Regular Price:</strong> $25</p>
+      <p class="mb-2">
+        <strong>Early Bird:</strong> <%= danceClass.promoPrice %> until
+        <%=danceClass.promoEnd %>
+      </p>
+      <p class="mb-3">
+        <strong>Regular Price:</strong> <%= danceClass.regularPrice %>
+      </p>
 
-      <p class="fw-bold text-warning mb-4">Save $5 when you book early</p>
+      <p class="fw-bold text-warning mb-4">Save $$$ when you book early</p>
 
       <a
-        href="https://member.life/thewoodlandslatindance/offer/5900"
+        href="<%= danceClass.paymentLink %>"
+        target="_blank"
         class="btn button-effect btn-lg px-5"
       >
         Reserve My Spot Now
@@ -190,7 +198,8 @@
     <p class="mb-4">Reserve your spot now and start dancing with confidence.</p>
 
     <a
-      href="https://member.life/thewoodlandslatindance/offer/5900"
+      href="<%= danceClass.paymentLink %>"
+      target="_blank"
       class="btn button-effect btn-lg px-5"
     >
       Yes, I Want to Learn Bachata

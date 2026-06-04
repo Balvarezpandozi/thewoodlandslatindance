@@ -43,7 +43,8 @@ module.exports.formatDanceClassDates = formatDanceClassDates;
 function formatDateClassString(datesList) {
   let dateString = "";
   datesList.forEach((dateObject) => {
-    dateString += dateObject.month + ":" + dateObject.dates + ";";
+    dateString +=
+      dateObject.month + ":" + dateObject.dates.replaceAll(" ", "") + ";";
   });
   return dateString;
 }

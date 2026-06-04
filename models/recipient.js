@@ -16,6 +16,7 @@ const RecipientSchema = new Schema({
   },
   subscribed: { type: Boolean, default: true },
   name: { type: String, required: true },
+  timestamp: { type: Date, required: true },
 });
 
 module.exports = mongoose.model("Recipient", RecipientSchema);
