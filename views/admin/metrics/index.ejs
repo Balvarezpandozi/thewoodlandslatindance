@@ -2,19 +2,34 @@
 <div class="container-900px mx-auto my-5 px-5">
   <h1 class="mx-auto text-center display-4">All Recipients</h1>
   <a class="btn btn-primary" href="/adminportal">⬅️ Dashboard</a>
+  <form action="/adminPortal/metrics" method="post" class="row mt-3">
+    <div class="mb-3 row col-4">
+      <label for="fromDate" class="col-form-label col-2">From:</label>
+      <div class="col-10">
+        <input type="date" class="form-control" id="fromDate" name="fromDate">
+      </div>
+    </div>
+    <div class="mb-3 row col-4">
+      <label for="toDate" class="col-form-label col-2">To:</label>
+      <div class="col-10">
+        <input type="date" class="form-control" id="toDate" name="toDate">
+      </div>
+    </div>
+    <button type="submit" class="col-4 btn btn-primary mb-3">Filter</button>
+  </form>
 
   <table class="table">
     <thead>
       <tr>
-        <th scope="col">Visitor ID <button data-ascending="true" onclick="sortByStatus(this)" id="status-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
+        <th scope="col">Visitor ID <button data-ascending="true" onclick="sortByVisitorId(this)" id="visitorID-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
         <th scope="col">Timestamp <button data-ascending="true" onclick="sortByTimestamp(this)" id="timestamp-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
-        <th scope="col">URL <button data-ascending="true" onclick="sortByName(this)" id="name-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
-        <th scope="col">Type <button data-ascending="true" onclick="sortByEmail(this)" id="email-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
+        <th scope="col">URL <button data-ascending="true" onclick="sortByUrl(this)" id="url-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
+        <th scope="col">Type <button data-ascending="true" onclick="sortByType(this)" id="type-sort"><svg xmlns="http://www.w3.org/2000/svg" width="24" height="24" viewBox="0 0 24 24"><path fill="none" stroke="currentColor" stroke-linecap="round" stroke-linejoin="round" stroke-width="1.5" d="M10 14H2m6-4H2m4-4H2m10 12H2m17 2V4m0 16l3-3m-3 3l-3-3m3-13l3 3m-3-3l-3 3"/></svg></button></th>
       </tr>
     </thead>
     <tbody>
       <% for(let interaction of pageInteractions) { %>
-        <tr class="interaction">
+        <tr class="interaction interaction-identifier">
           <td><%= interaction.visitorId %></td>
           <td><%= new Date(interaction.timestamp).toLocaleString() %></td>
           <td><%= interaction.url %></td>
