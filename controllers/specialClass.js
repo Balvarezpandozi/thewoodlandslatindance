@@ -13,9 +13,9 @@ module.exports.renderBachataCrashCourse = (req, res) => {
   res.render("events/specialClass", {
     locals: viewLocals,
     danceClass: {
-      date: "July 12th",
-      time: "5:00 PM",
-      promoEnd: "July 11th",
+      date: "August 2nd",
+      time: "3:00 PM",
+      promoEnd: "August 1st",
       promoPrice: "$20",
       regularPrice: "$25",
       paymentLink: "https://member.life/thewoodlandslatindance/offer/5900",
