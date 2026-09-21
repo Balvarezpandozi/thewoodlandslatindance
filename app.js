@@ -19,6 +19,7 @@ const qrCodeRouter = require("./routes/qrCode");
 const adminRouter = require("./routes/admin/index");
 const userRouter = require("./routes/user");
 const trackRouter = require("./routes/track");
+const playlistSorterRouter = require("./routes/playlistSorter");
 
 const db = new Database();
 db.connect();
@@ -76,6 +77,7 @@ app.use("/qrCode", qrCodeRouter);
 app.use("/adminportal", adminRouter);
 app.use("/auth", userRouter);
 app.use("/track", trackRouter);
+app.use("/SalsaBachataPlaylistSorter", playlistSorterRouter);
 
 app.all("*", (req, res, next) => {
   next(new ExpressError("Page not found", 404));
